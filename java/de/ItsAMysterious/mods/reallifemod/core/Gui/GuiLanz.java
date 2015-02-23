@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
@@ -7,7 +7,7 @@ import net.minecraftforge.client.model.IModelCustom;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
-import de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs.EntityLanz;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.EntityLanz;
 
 public class GuiLanz extends GuiScreen {
 	public static int TextureID=0;

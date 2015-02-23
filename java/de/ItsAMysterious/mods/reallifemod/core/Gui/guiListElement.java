@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 

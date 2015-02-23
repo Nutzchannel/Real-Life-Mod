@@ -1,16 +1,17 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import de.ItsAMysterious.mods.reallifemod.api.Gui.GuiEdit;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.guiRadioGroup;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.guiRadiobutton;
+import de.ItsAMysterious.mods.reallifemod.api.gui.GuiEdit;
+import de.ItsAMysterious.mods.reallifemod.api.gui.GuiRadiogroup;
+import de.ItsAMysterious.mods.reallifemod.api.gui.GuiRadiobutton;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
@@ -25,7 +26,6 @@ import net.minecraft.util.ResourceLocation;
 
 public class guiCharacterSetup extends GuiScreen{
 
-	private static ResourceLocation Background=new ResourceLocation("reallifemod:textures/gui/Noticeboard.png");
 	private GuiButton NameChanging;
     private EntityPlayer thePlayer;
     private int GuiLifePage;
@@ -35,7 +35,7 @@ public class guiCharacterSetup extends GuiScreen{
 	public int state;
 	public String date, theGender;
 	private GuiEdit Name,Surname;
-	public guiRadioGroup Gender=new guiRadioGroup(130, this.height/2+50);;
+	public GuiRadiogroup Gender=new GuiRadiogroup(130, this.height/2+50);;
 	private float rotation=0;
 
 	public guiCharacterSetup(){
@@ -60,18 +60,18 @@ public class guiCharacterSetup extends GuiScreen{
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		this.date=simpleDateFormat.format(zeitstempel);
 		this.theGender=ClientProxy.Genders.getOrDefault(Minecraft.getMinecraft().thePlayer.getDisplayName(),"male");
-		guiRadiobutton male=new guiRadiobutton(130, this.height/2+50, "male");
+		GuiRadiobutton male=new GuiRadiobutton(130, this.height/2+50, "male");
 		if(this.theGender=="male"){
 			male.checked=true;
-			guiRadioGroup.currentButton=male;
+			GuiRadiogroup.currentButton=male;
 		}
-		guiRadioGroup.buttonList.put(0, male);
-		guiRadiobutton female=new guiRadiobutton(130+fontRendererObj.getStringWidth("female")+5, this.height/2+50, "female");
+		GuiRadiogroup.buttonList.put(0, male);
+		GuiRadiobutton female=new GuiRadiobutton(130+fontRendererObj.getStringWidth("female")+5, this.height/2+50, "female");
 		if(this.theGender=="female"){
 			female.checked=true; 
-			guiRadioGroup.currentButton=female;
+			GuiRadiogroup.currentButton=female;
 		}
-		guiRadioGroup.buttonList.put(1, female);
+		GuiRadiogroup.buttonList.put(1, female);
 		if(ClientProxy.EntityNames.get(Minecraft.getMinecraft().thePlayer.getDisplayName().toString())==null)
 		state=0;
 		else this.state=1;

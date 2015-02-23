@@ -1,7 +1,7 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.seasonalstuff;
 
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.christmaspyramidTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.christmaspyramidTE;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -17,6 +17,7 @@ public class blockChristmasPyramid extends BlockContainer implements ITileEntity
 	public blockChristmasPyramid() {
 		super(Material.wood);
 		this.setBlockName("christmaspyramid");
+		this.setBlockTextureName("reallifemod:iconChristmaspyramid");
 	}
 
 	@Override

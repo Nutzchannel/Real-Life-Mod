@@ -1,14 +1,16 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui.Computer.System;
+package de.ItsAMysterious.mods.reallifemod.core.gui.computer.system;
 
 import java.awt.Color;
-import org.lwjgl.opengl.GL11;
 
-import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.FMLClientHandler;
 
 public class guiExplorerWindow extends GuiScreen {
 	

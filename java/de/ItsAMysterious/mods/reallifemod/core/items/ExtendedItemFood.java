@@ -1,6 +1,6 @@
 package de.ItsAMysterious.mods.reallifemod.core.items;
 
-import de.ItsAMysterious.mods.reallifemod.api.Interfaces.Buyable;
+import de.ItsAMysterious.mods.reallifemod.api.interfaces.Buyable;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 

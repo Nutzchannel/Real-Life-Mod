@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Interfaces;
+package de.ItsAMysterious.mods.reallifemod.api.interfaces;
 
 public interface IVehicleEntity {
 

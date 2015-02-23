@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Handlers;
+package de.ItsAMysterious.mods.reallifemod.api.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -26,8 +26,6 @@ public class RLMTerrainHandler {
 	    Chunk chunk = event.world.getChunkFromChunkCoords(event.chunkX, event.chunkZ);
 	    BlockAirExtended toBlock = new BlockAirExtended(); // change this to suit your need
 	    Block FromBlock = Blocks.air; // change this to suit your need
-	    BlockAirExtended.TemperaturC=28;
-	    Block b=toBlock;
 
 	    for (ExtendedBlockStorage storage : chunk.getBlockStorageArray()) 
 	    {
@@ -41,7 +39,7 @@ public class RLMTerrainHandler {
 	                    {
 	                        if (storage.getBlockByExtId(x, y, z) == FromBlock) 
 	                        {
-	                            storage.func_150818_a(x, y, z, b);
+	                            storage.func_150818_a(x, y, z, toBlock);
 	                        }
 	                    }
 	                }

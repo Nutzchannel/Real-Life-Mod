@@ -1,6 +1,6 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.street;
 
-import de.ItsAMysterious.mods.reallifemod.api.Materials.Materials;
+import de.ItsAMysterious.mods.reallifemod.api.util.Materials;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;

@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.item.Item;
@@ -6,10 +6,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import de.ItsAMysterious.mods.reallifemod.TLMItems;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
 
-public class guiATM extends RLM_Gui{
+public class GuiATM extends RLM_Gui{
 	public int buttonCountY=0;
 	public int rowX=0;
 	private int timesJumpedToTop=0;

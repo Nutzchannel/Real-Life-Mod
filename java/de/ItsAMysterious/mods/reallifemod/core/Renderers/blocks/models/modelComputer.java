@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models;
+package de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

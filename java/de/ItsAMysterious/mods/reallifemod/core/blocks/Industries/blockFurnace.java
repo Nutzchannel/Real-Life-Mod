@@ -4,16 +4,15 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.GuiOven;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.OvenTileEntity;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.blastfurnaceTE;
+import de.ItsAMysterious.mods.reallifemod.core.gui.GuiOven;
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.OvenTileEntity;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.blastfurnaceTE;
 
 
 public class blockFurnace extends BlockContainer implements ITileEntityProvider{
@@ -61,33 +60,13 @@ public class blockFurnace extends BlockContainer implements ITileEntityProvider{
             return true;
         }
         
-        @Override
-        public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)
-        {
-            int facing = MathHelper.floor_double((entityliving.rotationYaw * 4F) / 360F + 0.5D) & 3;
-            int newFacing = 0;
-            if (facing == 0)
-            {
-            	newFacing = 2;
-            }
-            if (facing == 1)
-            {
-            	newFacing = 5;
-            }
-            if (facing == 2)
-            {
-            	newFacing = 3;
-            }
-            if (facing == 3)
-            {
-            	newFacing = 4;
-            }
-            TileEntity te = world.getTileEntity(i, j, k);
-            if (te != null && te instanceof blastfurnaceTE)
-            {
-            	blastfurnaceTE tet = (blastfurnaceTE) te;
-                tet.setFacingDirection(newFacing);
-                world.markBlockForUpdate(i, j, k);
-            }
-        }
+    	@Override
+    	public void onBlockAdded(World world, int x, int y, int z){
+    		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+    		if(entity!=null&&world!=null){
+    		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+    		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+    		}
+    		world.markBlockForUpdate(x, y, z);
+    	}
 }

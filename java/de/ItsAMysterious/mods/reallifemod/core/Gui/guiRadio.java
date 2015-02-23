@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 import java.io.File;
@@ -17,13 +17,13 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import de.ItsAMysterious.mods.reallifemod.TLM;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.radioTE;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.radioTE;
 
 public class guiRadio extends RLM_Gui{
 	private int lengthinmilliseconds, volume=0;
-	private File track=new File(TLM.Dir, "assets/reallifemod/sounds");
+	private File track=new File(RealLifeMod.Dir, "assets/reallifemod/sounds");
 	private List<ResourceLocation>tracks=new ArrayList<ResourceLocation>();
 	private int currentsong;
 	private Vector3f blockPosition;

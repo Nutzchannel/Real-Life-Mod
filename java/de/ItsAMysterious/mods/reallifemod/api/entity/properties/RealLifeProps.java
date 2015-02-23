@@ -16,7 +16,7 @@ public class RealLifeProps implements IExtendedEntityProperties{
 	public static enum Moods{
 		HAPPY, UNCOMFORTABLE,TENSE, FRIGHTENED, WEAK, SAD,COQUETTISH, PLAYFUL, STIRRED;
 	}
-	
+
 	public static double Toilet=0;
 	public static float thirst=0;
 	public float fatigue=0;
@@ -27,6 +27,7 @@ public class RealLifeProps implements IExtendedEntityProperties{
 	public int bedX=0;
 	public int bedY=0;
 	public int bedZ=0;
+	public String name, surname;
 	
 	public EntityPlayer player;
 	private int time;
@@ -34,6 +35,7 @@ public class RealLifeProps implements IExtendedEntityProperties{
 	public boolean sleeping;
 	private boolean pissing=false;
 	public boolean updated;
+	public phone ThePhone=new phone();
 	
 	public RealLifeProps(EntityPlayer player) {
 		this.player=player;
@@ -41,17 +43,22 @@ public class RealLifeProps implements IExtendedEntityProperties{
 	
 	@Override
 	public void saveNBTData(NBTTagCompound saveTag) {
-		NBTTagCompound combound=new NBTTagCompound();
-		combound.setString("MOOD", this.mood.name());
-		combound.setFloat("FATIGUE", this.fatigue);
-		saveTag.setTag("RealLifeProps", combound);
+		this.player.writeEntityToNBT(saveTag);
+		NBTTagCompound compound=new NBTTagCompound();
+		saveTag.setTag("RealLifeProps", compound);
+		compound.setString("MOOD", this.mood.name());
+		compound.setFloat("FATIGUE", this.fatigue);
+		compound.setString("PlayerName", this.name);
+
 	}
 
 	@Override
 	public void loadNBTData(NBTTagCompound loadTag) {
-		NBTTagCompound combound=loadTag.getCompoundTag("RealLifeProps");
-		this.mood=Moods.valueOf(combound.getString("MOOD"));
-		this.fatigue=combound.getFloat("FATIGUE");
+		this.player.readEntityFromNBT(loadTag);
+		NBTTagCompound compound=loadTag.getCompoundTag("RealLifeProps");
+		this.mood=Moods.valueOf(compound.getString("MOOD"));
+		this.fatigue=compound.getFloat("FATIGUE");
+		this.name=compound.getString("PlayerName");
 
 	}
 
@@ -135,12 +142,16 @@ public class RealLifeProps implements IExtendedEntityProperties{
 		return "";
 	}
 
-	public void addMoney(int i) {
-	}
-
 	public void setPissing() {
 		this.pissing=true;
 	}
+	
+	public static class phone{
+		public enum phonepartners{
+			POLICE,FIREFIGHTER,PARAMEDICS, TUTORIALHOTLINE;
+		}
+		public static phonepartners partner=phonepartners.POLICE;
+	};
 
 	
 }

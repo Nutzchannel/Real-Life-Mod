@@ -1,8 +1,8 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import net.minecraft.client.gui.GuiButton;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.bilboardTE;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.bilboardTE;
 
 public class GuiAdvert extends RLM_Gui{
 	public bilboardTE shield;

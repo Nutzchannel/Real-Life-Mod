@@ -11,8 +11,7 @@ public class ItemBanana extends ExtendedItemFood{
 	public ItemBanana(int HealAmmount, boolean isWolfsFavorite) {
 		super(HealAmmount, isWolfsFavorite);
 		setUnlocalizedName("banana");
-		setTextureName("reallifemod:Banana");
-		setAlwaysEdible();
+		setTextureName("reallifemod:banana");
 		this.setPrice(0.31F);
 	}
 	@Override

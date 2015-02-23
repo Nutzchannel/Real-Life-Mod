@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models;
+package de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -23,12 +23,10 @@ public class modelTelephone extends ModelBase
     ModelRenderer Shape14;
     ModelRenderer Shape15;
     ModelRenderer Shape16;
-  
+	public int textureWidth = 512;
+    public int textureHeight = 512;
   public modelTelephone()
   {
-    textureWidth = 512;
-    textureHeight = 512;
-    
       Shape1 = new ModelRenderer(this, 0, 100);
       Shape1.addBox(0F, 0F, 0F, 1, 1, 1);
       Shape1.setRotationPoint(0F, 0F, 0F);

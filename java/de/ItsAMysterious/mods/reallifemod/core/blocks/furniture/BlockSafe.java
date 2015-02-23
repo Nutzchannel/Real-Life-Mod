@@ -3,31 +3,30 @@ package de.ItsAMysterious.mods.reallifemod.core.blocks.furniture;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.neonlampTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.safeTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.neonlampTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.safeTE;
 
 
-public class BlockSafe extends BlockContainer implements ITileEntityProvider{
+public class blockSafe extends BlockContainer implements ITileEntityProvider{
 
 
-        public BlockSafe() {
+        public blockSafe() {
                 super(Material.glass);
                 setBlockName("showcase");
+                setBlockTextureName("reallifemod:showcase");
                 this.setLightLevel(0.9375F);
                 this.setLightOpacity(0)	;
         }
 
-        @Override
-		public void onBlockDestroyedByPlayer(World world, int par1, int par2, int par3, int par4) 
-        {
-        	this.dropBlockAsItem(world, par1, par2, par3, new ItemStack(this));
-		}
         @Override
         public TileEntity createNewTileEntity(World world,int var2) {
             return new  safeTE();
@@ -35,7 +34,7 @@ public class BlockSafe extends BlockContainer implements ITileEntityProvider{
         
         @Override
         public int getRenderType() {
-           return ClientProxy.getRenderID(this);
+           return -1;
         }
         
         @Override
@@ -48,34 +47,42 @@ public class BlockSafe extends BlockContainer implements ITileEntityProvider{
                 return false;
         }
         
-        
         @Override
-        public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)
-        {
-            int facing = MathHelper.floor_double((entityliving.rotationYaw * 4F) / 360F + 0.5D) & 3;
-            int newFacing = 0;
-            if (facing == 0)
-            {
-            	newFacing = 2;
-            }
-            if (facing == 1)
-            {
-            	newFacing = 5;
-            }
-            if (facing == 2)
-            {
-            	newFacing = 3;
-            }
-            if (facing == 3)
-            {
-            	newFacing = 4;
-            }
-            TileEntity te = world.getTileEntity(i, j, k);
-            if (te != null && te instanceof neonlampTE)
-            {
-            	safeTE tet = (safeTE) te;
-                tet.setFacingDirection(newFacing);
-                world.markBlockForUpdate(i, j, k);
-            }
-        }
+        public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+    		super.setBlockBoundsBasedOnState(world, x, y, z);
+    		switch(world.getBlockMetadata(x, y, z)){
+    			//North
+    			case 0:{
+    				this.setBlockBounds(-0.5F, 0F, -0.5F, 1.5F, 2.3F, 1.5F);
+    				break;
+    			}
+    			//West
+    			case 1:{
+    				this.setBlockBounds(-0.5F, 0F, -0.5F, 1.5F, 2.3F, 1.5F);
+    				break;
+    			}
+    			//South
+    			case 2:{
+    				this.setBlockBounds(-0.5F, 0F, -0.5F, 1.5F, 2.3F, 1.5F);
+    				break;
+    			}
+    			//East
+    			case 3:{
+    				this.setBlockBounds(-0.5F, 0F, -0.5F, 1.5F, 2.3F, 1.5F);
+    				break;
+    			}
+
+    			}
+    		}
+        
+        
+    	@Override
+    	public void onBlockAdded(World world, int x, int y, int z){
+    		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+    		if(entity!=null&&world!=null){
+    		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+    		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+    		}
+    		world.markBlockForUpdate(x, y, z);
+    	}
 }

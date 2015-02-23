@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Enums;
+package de.ItsAMysterious.mods.reallifemod.api.enums;
 
 public class EnumActionsPlayer {
 

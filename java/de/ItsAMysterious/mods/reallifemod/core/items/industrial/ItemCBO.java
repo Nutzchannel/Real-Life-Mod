@@ -1,13 +1,12 @@
 package de.ItsAMysterious.mods.reallifemod.core.items.industrial;
 
-import de.ItsAMysterious.mods.reallifemod.core.Gui.CustomBlockGui;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.TileEntityCBO;
-import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import de.ItsAMysterious.mods.reallifemod.core.gui.CustomBlockGui;
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.TileEntityCBO;
+import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
 
 public class ItemCBO extends ExtendedItem{
 	

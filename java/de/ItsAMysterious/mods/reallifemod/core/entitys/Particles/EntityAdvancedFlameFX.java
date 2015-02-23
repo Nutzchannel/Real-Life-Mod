@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.entitys.Particles;
+package de.ItsAMysterious.mods.reallifemod.core.entitys.particles;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

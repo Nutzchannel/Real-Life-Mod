@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.entitys.AI;
+package de.ItsAMysterious.mods.reallifemod.core.entitys.ai;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -28,7 +28,9 @@ public class EntityAIExtinguish extends EntityAIBase{
     @Override
 	public boolean continueExecuting()
     {
+		if(this.theWorld.getBlock((int)this.theEntity.posX,(int) this.theEntity.posY-1,(int) this.theEntity.posZ)==Blocks.fire);
         return this.shouldExecute();
+
     }
 
     /**
@@ -59,7 +61,9 @@ public class EntityAIExtinguish extends EntityAIBase{
      * Updates the task
      */
     @Override
-	public void updateTask() {}
+	public void updateTask() {
+    	this.theWorld.spawnParticle("splash", theEntity.posX+1, theEntity.posY, theEntity.posZ, 0.1, -10.1, 0.1);
+    }
 
 
 }

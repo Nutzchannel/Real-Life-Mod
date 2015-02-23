@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui.Computer.System;
+package de.ItsAMysterious.mods.reallifemod.core.gui.computer.system;
 
 import java.util.ArrayList;
 import java.util.List;

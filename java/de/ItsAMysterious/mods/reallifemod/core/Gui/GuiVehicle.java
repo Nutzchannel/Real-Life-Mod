@@ -1,13 +1,15 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
+
 import net.minecraft.client.gui.Gui;
+
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.Display;
 
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
-import de.ItsAMysterious.mods.reallifemod.api.Utils.LittleFunctions;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityBasicVehicle;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.api.util.LittleFunctions;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityBasicVehicle;
 
 public class GuiVehicle extends RLM_Gui {
 	EntityBasicVehicle vehicle;

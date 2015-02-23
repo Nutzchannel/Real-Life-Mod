@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;

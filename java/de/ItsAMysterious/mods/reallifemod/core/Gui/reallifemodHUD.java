@@ -1,7 +1,16 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
-import java.awt.Color;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
+import static org.lwjgl.opengl.GL11.GL_BLEND;
+import static org.lwjgl.opengl.GL11.GL_ONE_MINUS_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.GL_SRC_ALPHA;
+import static org.lwjgl.opengl.GL11.glBlendFunc;
+import static org.lwjgl.opengl.GL11.glColor3f;
+import static org.lwjgl.opengl.GL11.glDepthMask;
+import static org.lwjgl.opengl.GL11.glDisable;
+import static org.lwjgl.opengl.GL11.glEnable;
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
 
-import org.lwjgl.input.Keyboard;
+import java.awt.Color;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
@@ -12,15 +21,15 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import cpw.mods.fml.client.FMLClientHandler;
+
+import org.lwjgl.input.Keyboard;
+
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.RealLifeProps;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
-import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.Configuration.TLMSettings;
-import static org.lwjgl.opengl.GL11.*;
+import de.ItsAMysterious.mods.reallifemod.core.config.TLMSettings;
 
 public class reallifemodHUD extends Gui
 {
@@ -31,7 +40,6 @@ private World world;
 private boolean showMessage=true;
 private boolean showTips=true;
 public boolean showAdditionalInfo=false;
-  
   public reallifemodHUD(Minecraft mc)
   {
 	  super();
@@ -62,23 +70,14 @@ public boolean showAdditionalInfo=false;
 		drawTexturedModalRect(0, 0, 0, 0, 17, 68);
 		mc.getTextureManager().bindTexture(new ResourceLocation("reallifemod:textures/gui/guiThermometer2.png"));
 		drawTexturedModalRect(0, 64-64, 0, 64-64, 17, 68);
-		if(!mc.thePlayer.capabilities.isCreativeMode){
-		/*mc.getTextureManager().bindTexture(new ResourceLocation("reallifemod:textures/gui/hud/toiletEmpty.png"));
-		this.drawTexturedModalRect(34, 54, 0, 0, 256, 256);
-		mc.getTextureManager().bindTexture(new ResourceLocation("reallifemod:textures/gui/hud/thirstBottleFull.png"));
-		this.drawTexturedModalRect(18,  (int)(36),  0,0, 256, 256);
-		mc.getTextureManager().bindTexture(new ResourceLocation("reallifemod:textures/gui/hud/thirstBottle.png"));*/
-		//this.drawRect(19, 36+(int)(32/100*props.thirst), 24, 37+(int)(32/100*props.thirst), Color.BLUE.getRGB());
-		//this.drawTexturedModalRect(18, 36, 0, 0, 256, 256);
-		//this.drawRect(22, (int) (42-props.thirst), 32, 63, Color.blue.getRGB());
-		}
 		if(this.world.getBlock(mc.objectMouseOver.blockX, mc.objectMouseOver.blockY, mc.objectMouseOver.blockZ)==TLMBlocks.boxbush){
 			this.drawString(mc.fontRenderer, "Press E to collect herbs", 21,35,Color.red.getRGB());
 		}else;
-			//this.drawString(mc.fontRenderer, this.world.getBlock(mc.objectMouseOver.blockX, mc.objectMouseOver.blockY, mc.objectMouseOver.blockZ).getUnlocalizedName().split("tile.")[1], 21,35,Color.red.getRGB());
+		if(this.world.getBlock(mc.objectMouseOver.blockX, mc.objectMouseOver.blockY, mc.objectMouseOver.blockZ)==TLMBlocks.marygold){
+				this.drawString(mc.fontRenderer, "Marygold:"+EnumChatFormatting.WHITE+" Can be used to craft medicine", 20,51,Color.red.getRGB());
+		}
 		String mood=props.ColorOfMood(props.mood)+props.mood.name();
-		financialProps cash=(financialProps) mc.thePlayer.getExtendedProperties(financialProps.EXT_PROP_NAME);
-		this.drawString(mc.fontRenderer,"Cash: "+cash.Cash+"$",20, 5,  Color.white.getRGB());
+		this.drawString(mc.fontRenderer,"Cash: "+((financialProps)p.getExtendedProperties("financialProps")).Cash+"$",20, 5,  Color.white.getRGB());
 		this.drawString(mc.fontRenderer,"Mood: "+ mood,20, 15,  Color.white.getRGB());
 		if(showTips==true){
 			this.drawString(mc.fontRenderer, "Press tab to view additional information, like fatigue or courage!", 100, 0, Color.white.getRGB());
@@ -92,7 +91,6 @@ public boolean showAdditionalInfo=false;
 		Gui.drawRect(20,40,20+(int) (RealLifeProps.Toilet/100*(80)),50,Color.orange.darker().darker().getRGB());
 		this.drawString(mc.fontRenderer, "toilet", 50, 41, Color.white.getRGB());
 		if(Keyboard.isKeyDown(Keyboard.KEY_TAB)){
-			//this.drawTexturedModalRect(0, 68, 0, 0, 100, 100);
 			Gui.drawRect(10, 70, 100, 80, Color.black.getRGB());
 			Gui.drawRect(10, 70, 100, 80, Color.red.darker().getRGB());
 			this.drawString(mc.fontRenderer, "fatigue", 37, 71, Color.white.getRGB());

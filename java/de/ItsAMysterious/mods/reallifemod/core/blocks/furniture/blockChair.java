@@ -2,21 +2,22 @@ package de.ItsAMysterious.mods.reallifemod.core.blocks.furniture;
 
 import java.util.List;
 
-import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models.modelChair;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.chairTE;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
+import de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models.modelChair;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.chairTE;
 
 public class blockChair extends BlockContainer implements ITileEntityProvider{
 
@@ -28,6 +29,7 @@ public class blockChair extends BlockContainer implements ITileEntityProvider{
 	public blockChair() {
 		super(Material.wood);
 		this.setBlockName("chair");
+		this.setBlockTextureName("reallifemod:iconChair");
 	}
 
 	@Override
@@ -49,36 +51,17 @@ public class blockChair extends BlockContainer implements ITileEntityProvider{
 		return ClientProxy.getRenderID(this);
 	}
 	
-    @Override
-    public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)
-    {
-        int facing = MathHelper.floor_double((entityliving.rotationYaw * 4F) / 360F + 0.5D) & 3;
-        int newFacing = 0;
-        if (facing == 0)
-        {
-        	newFacing = 2;
-        }
-        if (facing == 1)
-        {
-        	newFacing = 5;
-        }
-        if (facing == 2)
-        {
-        	newFacing = 3;
-        }
-        if (facing == 3)
-        {
-        	newFacing = 4;
-        }
-        TileEntity te = world.getTileEntity(i, j, k);
-        if (te != null && te instanceof chairTE)
-        {
-        	chairTE tet = (chairTE) te;
-            tet.setFacingDirection(newFacing);
-            world.markBlockForUpdate(i, j, k);
-        }
-    }
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z){
+		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+		if(entity!=null&&world!=null){
+		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+		}
+		world.markBlockForUpdate(x, y, z);
+	}
     
+	@SideOnly(Side.CLIENT)
     @Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_){
 		chairTE chair=(chairTE)world.getTileEntity(x, y, z);
@@ -90,8 +73,10 @@ public class blockChair extends BlockContainer implements ITileEntityProvider{
     			chair.dismountEntity();
     		}
 			world.markBlockForUpdate(x, y, z);
-    		player.addChatMessage(new ChatComponentText("Press L_SHIFT to stand up!"));
+			if(!world.isRemote){
+    		player.addChatMessage(new ChatComponentText("Press L_SHIFT to stand up!"));}
     	return true;
+
     }
     
 	@Override

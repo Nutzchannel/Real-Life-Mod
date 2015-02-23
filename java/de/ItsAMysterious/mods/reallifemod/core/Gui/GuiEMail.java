@@ -1,8 +1,8 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;

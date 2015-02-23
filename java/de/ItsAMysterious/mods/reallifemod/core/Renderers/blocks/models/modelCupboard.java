@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models;
+package de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -22,12 +22,10 @@ public class modelCupboard extends ModelBase
     public static ModelRenderer LittleDoorButton;
     public static ModelRenderer LeftDoorButton;
     public static ModelRenderer RightDoorButton;
-  
+    public int textureWidth = 512;
+    public int textureHeight = 512;
   public modelCupboard()
   {
-    textureWidth = 512;
-    textureHeight = 512;
-    
       Boottom = new ModelRenderer(this, 0, 134);
       Boottom.addBox(0F, 0F, 0F, 48, 1, 16);
       Boottom.setRotationPoint(-24F, 23F, -8F);

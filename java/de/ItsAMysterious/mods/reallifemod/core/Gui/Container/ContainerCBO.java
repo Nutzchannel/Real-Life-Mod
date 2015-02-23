@@ -1,6 +1,5 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui.Container;
+package de.ItsAMysterious.mods.reallifemod.core.gui.container;
 
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.TileEntityCBO;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

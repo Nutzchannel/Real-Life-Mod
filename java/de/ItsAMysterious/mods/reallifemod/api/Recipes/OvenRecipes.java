@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Recipes;
+package de.ItsAMysterious.mods.reallifemod.api.recipes;
 
 import java.util.HashMap;
 import java.util.Iterator;

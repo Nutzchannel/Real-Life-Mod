@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Gui;
+package de.ItsAMysterious.mods.reallifemod.api.gui;
 
 import static org.lwjgl.opengl.GL11.GL_BLEND;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;

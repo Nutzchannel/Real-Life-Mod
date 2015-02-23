@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys;
+package de.ItsAMysterious.mods.reallifemod.core.streets.entitys;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

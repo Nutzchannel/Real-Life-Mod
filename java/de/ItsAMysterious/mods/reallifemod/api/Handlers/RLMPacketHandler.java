@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Handlers;
+package de.ItsAMysterious.mods.reallifemod.api.handlers;
 
 import io.netty.buffer.ByteBuf;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

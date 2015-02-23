@@ -8,7 +8,7 @@ import net.minecraftforge.common.config.Configuration;
 public class TLMConfigGUI extends GuiConfig {
     public TLMConfigGUI(GuiScreen parent) {
         super(parent,
-                new ConfigElement(TLM.configFile.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
-                "TLM", false, false, GuiConfig.getAbridgedConfigPath(TLM.configFile.toString()));
+                new ConfigElement(RealLifeMod.configFile.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
+                "RealLifeMod", false, false, GuiConfig.getAbridgedConfigPath(RealLifeMod.configFile.toString()));
     }
 }

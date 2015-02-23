@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Interfaces;
+package de.ItsAMysterious.mods.reallifemod.api.interfaces;
 
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.Job;
 import net.minecraft.entity.EntityLivingBase;

@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Gui;
+package de.ItsAMysterious.mods.reallifemod.api.gui;
 
 public class GuiSelectableInterface {
 

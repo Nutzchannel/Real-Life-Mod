@@ -1,13 +1,15 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.street;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.GuiAdvert;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.bilboardTE;
+import de.ItsAMysterious.mods.reallifemod.core.gui.GuiAdvert;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.bilboardTE;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 
@@ -15,7 +17,7 @@ public class blockBilboard extends BlockContainer   {
 
 	public blockBilboard(Material material) {
 	        super(Material.iron);
-	        setBlockTextureName("TLM:shield");
+	        setBlockTextureName("RealLifeMod:shield");
 	        setBlockName("advertBilboard");
 	        setBlockBounds(-2.0F, 0F, 0F, 2.0F, 3.0F, 0.4F);
         }
@@ -55,4 +57,14 @@ public class blockBilboard extends BlockContainer   {
         	FMLClientHandler.instance().getClient().displayGuiScreen(new GuiAdvert((bilboardTE)world.getTileEntity(x, y, z)));
             return true;
         }
+        
+    	@Override
+    	public void onBlockAdded(World world, int x, int y, int z){
+    		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+    		if(entity!=null&&world!=null){
+    		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+    		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+    		}
+    		world.markBlockForUpdate(x, y, z);
+    	}
 }

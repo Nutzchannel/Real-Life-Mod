@@ -1,10 +1,10 @@
-package de.ItsAMysterious.mods.reallifemod.api.Util;
+package de.ItsAMysterious.mods.reallifemod.api.util;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
 
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import net.minecraft.client.resources.FolderResourcePack;
 import net.minecraft.client.resources.IResource;
 import net.minecraft.client.resources.IResourceManager;
@@ -19,8 +19,8 @@ public class RLMResourceListener implements IResourceManagerReloadListener, IRes
 		if(manager instanceof SimpleReloadableResourceManager)
         {
             SimpleReloadableResourceManager simplemanager = (SimpleReloadableResourceManager)manager;
-            FolderResourcePack pack = new FolderResourcePack(TLM.Dir);
-            //simplemanager.reloadResourcePack(pack);
+            FolderResourcePack pack = new FolderResourcePack(RealLifeMod.Dir);
+            simplemanager.reloadResourcePack(pack);
         }
 
 	}

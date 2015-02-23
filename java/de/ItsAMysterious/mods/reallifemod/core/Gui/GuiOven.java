@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
@@ -9,8 +9,8 @@ import org.lwjgl.opengl.GL11;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.Container.ContainerOven;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.OvenTileEntity;
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.ContainerOven;
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.OvenTileEntity;
 
 @SideOnly(Side.CLIENT)
 public class GuiOven extends GuiContainer

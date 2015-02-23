@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.CustomTools;
+package de.ItsAMysterious.mods.reallifemod.api.customtools;
  
 import net.minecraft.item.ItemSpade;
  

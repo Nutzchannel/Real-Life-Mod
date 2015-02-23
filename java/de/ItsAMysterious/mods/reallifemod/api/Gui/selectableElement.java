@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Gui;
+package de.ItsAMysterious.mods.reallifemod.api.gui;
 
 import java.awt.Color;
 
@@ -10,7 +10,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.OpenGlHelper;
 
-public class selectableElement extends Gui{
+public class SelectableElement extends Gui{
 	public Minecraft mc;
 	public int posX;
 	public int posY;
@@ -21,7 +21,7 @@ public class selectableElement extends Gui{
 	protected int id;
 	private boolean mouseOver, selected;
 	
-	public selectableElement(int id,int x, int y , int width, int height){
+	public SelectableElement(int id,int x, int y , int width, int height){
 		this.posX=x;
 		this.posY=y;
 		this.sizeX=width;

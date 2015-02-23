@@ -2,7 +2,7 @@ package de.ItsAMysterious.mods.reallifemod.core.blocks.Industries;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -20,7 +20,7 @@ public class blockMeltedIron extends BlockFluidClassic {
         
         public blockMeltedIron(Fluid fluid) {
                 super(fluid, Material.lava);
-                setCreativeTab(TLM.TLMIndustry);
+                setCreativeTab(RealLifeMod.TLMIndustry);
         }
         
         @Override

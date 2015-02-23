@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 import java.io.BufferedReader;
@@ -6,10 +6,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiYesNoCallback;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 
 public class GuiHelp extends RLM_Gui implements GuiYesNoCallback{
 	int gray=Color.darkGray.getRGB();

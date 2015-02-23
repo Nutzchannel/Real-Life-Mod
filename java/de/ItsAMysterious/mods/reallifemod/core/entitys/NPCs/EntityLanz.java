@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs;
+package de.ItsAMysterious.mods.reallifemod.core.entitys.npcs;
 
 import org.lwjgl.input.Keyboard;
 

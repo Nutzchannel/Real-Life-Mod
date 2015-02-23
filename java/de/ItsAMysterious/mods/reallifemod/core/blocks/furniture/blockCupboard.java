@@ -1,18 +1,17 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.furniture;
 
-import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models.modelCupboard;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.cupboardTE;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirectional;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
+import de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models.modelCupboard;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.cupboardTE;
 
 public class blockCupboard extends BlockDirectional implements ITileEntityProvider{
 	public static modelCupboard model=new modelCupboard();
@@ -23,12 +22,13 @@ public class blockCupboard extends BlockDirectional implements ITileEntityProvid
 		super(Material.wood);
     	this.setBlockBounds(-1, 0, 0, 2.5F, 2, 1);
 		this.setBlockName("cupboard");
+		this.setBlockTextureName("reallifemod:iconCupboard");
 	}
 
 	@Override
 	public TileEntity createNewTileEntity(World world, int id) {
 		cupboardTE t=new cupboardTE();
-		t.model=blockCupboard.model;
+		model=blockCupboard.model;
 		return t;
 	}
 	
@@ -46,6 +46,33 @@ public class blockCupboard extends BlockDirectional implements ITileEntityProvid
 		return ClientProxy.getRenderID(this);
 	}
 	
+	@Override
+    public void setBlockBoundsBasedOnState(IBlockAccess world, int x, int y, int z) {
+		super.setBlockBoundsBasedOnState(world, x, y, z);
+		switch(world.getBlockMetadata(x, y, z)){
+			//North
+			case 0:{
+				this.setBlockBounds(-1F, 0F, 0.0F, 2F, 2.6F, 1.0F);
+				break;
+			}
+			//West
+			case 1:{
+				this.setBlockBounds(0.0F, 0.0F, -1F, 1F, 2.6F, 2F);
+				break;
+			}
+			//South
+			case 2:{
+				this.setBlockBounds(-1F, 0F, 0.0F, 2F, 2.6F, 1.0F);
+				break;
+			}
+			//East
+			case 3:{
+				this.setBlockBounds(0.0F, 0.0F, -1F, 1F, 2.6F, 2F);
+				break;
+			}
+
+			}
+		}
     @Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float posX, float posY, float posZ)
     {
@@ -65,41 +92,14 @@ public class blockCupboard extends BlockDirectional implements ITileEntityProvid
         return true;
     }
     
-    @Override
-	public void breakBlock(World world, int x, int y, int z, Block theBlock, int p_149749_6_)
-    {
-    	this.dropBlockAsItem(world, x, y, z, new ItemStack(this));
-        world.removeTileEntity(x, y, z);
-    }
-    
-    @Override
-    public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)
-    {
-        int facing = MathHelper.floor_double((entityliving.rotationYaw * 4F) / 360F + 0.5D) & 3;
-        int newFacing = 0;
-        if (facing == 0)
-        {
-        	newFacing = 2;
-        }
-        if (facing == 1)
-        {
-        	newFacing = 5;
-        }
-        if (facing == 2)
-        {
-        	newFacing = 3;
-        }
-        if (facing == 3)
-        {
-        	newFacing = 4;
-        }
-        TileEntity te = world.getTileEntity(i, j, k);
-        if (te != null && te instanceof cupboardTE)
-        {
-        	cupboardTE tet = (cupboardTE) te;
-            tet.setFacingDirection(newFacing);
-            world.markBlockForUpdate(i, j, k);
-        }
-    }
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z){
+		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+		if(entity!=null&&world!=null){
+		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+		}
+		world.markBlockForUpdate(x, y, z);
+	}
 
 }

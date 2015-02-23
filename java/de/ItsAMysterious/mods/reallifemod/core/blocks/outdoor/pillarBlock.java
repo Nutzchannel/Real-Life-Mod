@@ -1,8 +1,8 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.outdoor;
 
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.pillarTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.pillarTE;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
@@ -22,20 +22,20 @@ public class pillarBlock extends BlockContainer implements ITileEntityProvider{
 	
 	public pillarBlock(Material material) {
 		super(material);
-		this.setCreativeTab(TLM.Outdoor);
+		this.setCreativeTab(RealLifeMod.Outdoor);
 		this.setBlockTextureName(textureName);
 	}
 	
 	public pillarBlock(Material material, pillarType mat) {
 		this(material);
-		this.setCreativeTab(TLM.Outdoor);
+		this.setCreativeTab(RealLifeMod.Outdoor);
 		this.Type=mat;
 	}
 	
     @Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int p_149727_6_, float p_149727_7_, float p_149727_8_, float p_149727_9_)
     {
-    	if(player.inventory.getCurrentItem()!=null&&player.inventory.getCurrentItem().getItem()!=Item.getItemFromBlock(TLMBlocks.pillar)){
+    	if(player.inventory.getCurrentItem()!=null&&player.inventory.getCurrentItem().getItem()!=Item.getItemFromBlock(this)){
     		pillarTE te=(pillarTE)world.getTileEntity(x, y, z);
     		te.scale++;
     		if(te.scale==9.7F)
@@ -44,10 +44,19 @@ public class pillarBlock extends BlockContainer implements ITileEntityProvider{
     		return true;
     	}else
     	{
-    		if(player.inventory.getCurrentItem()!=null&&player.inventory.getCurrentItem().getItem()==Item.getItemFromBlock(TLMBlocks.pillar)){
+    		if(player.inventory.getCurrentItem()==null){
+        		pillarTE te=(pillarTE)world.getTileEntity(x, y, z);
+        		te.scale++;
+        		if(te.scale==9.7F)
+    			te.scale=0.7F;
+        		world.markBlockForUpdate(x, y, z);
+        		return true;
+    		}
+    		if(player.inventory.getCurrentItem()!=null&&player.inventory.getCurrentItem().getItem()==Item.getItemFromBlock(this)){
     			world.setBlock(x, y+1, z,Block.getBlockFromItem(player.inventory.getCurrentItem().getItem()));
     			return true;
     		}else
+    		
     		return false;
     	}
     }

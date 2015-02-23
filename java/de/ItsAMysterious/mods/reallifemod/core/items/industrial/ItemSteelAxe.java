@@ -1,6 +1,6 @@
 package de.ItsAMysterious.mods.reallifemod.core.items.industrial;
 
-import de.ItsAMysterious.mods.reallifemod.api.CustomTools.KruppAxe;
+import de.ItsAMysterious.mods.reallifemod.api.customtools.KruppAxe;
 
 public class ItemSteelAxe extends KruppAxe{
 

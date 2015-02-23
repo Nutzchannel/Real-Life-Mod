@@ -1,9 +1,9 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import org.lwjgl.input.Keyboard;
 
 import de.ItsAMysterious.mods.reallifemod.core.blocks.furniture.blockCupboard;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.cupboardTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.cupboardTE;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 

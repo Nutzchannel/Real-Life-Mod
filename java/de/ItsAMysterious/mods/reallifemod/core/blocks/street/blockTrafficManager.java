@@ -1,7 +1,7 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.street;
 
 import cpw.mods.fml.client.FMLClientHandler;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.Gui_TrafficLight;
+import de.ItsAMysterious.mods.reallifemod.core.gui.Gui_TrafficLight;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;

@@ -1,11 +1,14 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
+
+import javafx.scene.control.TreeItem;
 
 import org.lwjgl.opengl.GL11;
 
 import static org.lwjgl.opengl.GL11.*;
 import cpw.mods.fml.client.FMLClientHandler;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -19,20 +22,21 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
 import de.ItsAMysterious.mods.reallifemod.TLMItems;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
 import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
 
-public class guiCreeBay extends RLM_Gui{
+public class GuiCreebay extends RLM_Gui{
 	public int currentEntry=0;
 	public int centerX, centerY;
 	private float itemRotation=0;
 	private EntityItem item;
+	public Item theitem;
 	private float currentPrice=0;
 	private String state;
 	
-	public guiCreeBay() {
+	public GuiCreebay() {
 		super();
 	}
 	
@@ -40,6 +44,7 @@ public class guiCreeBay extends RLM_Gui{
 	public void initGui(){
 		this.item=new EntityItem(mc.theWorld);
 		this.item.setEntityItemStack(new ItemStack(TLMItems.ak));
+		this.theitem=new Item();
 		this.state="item.";
 		super.initGui();
 	}
@@ -71,17 +76,16 @@ public class guiCreeBay extends RLM_Gui{
 	@Override
 	public void updateScreen(){
 		super.updateScreen();
-
-		super.updateScreen();
 	}
 	
 	@Override
 	public void actionPerformed(GuiButton button){
-		financialProps props=financialProps.get(mc.thePlayer);
+		financialProps props=(financialProps)mc.thePlayer.getExtendedProperties("financialProps");
 		if(button.id==0){
 			if(props.Cash-this.currentPrice>0){
-			props.addCash(-this.currentPrice);
-			mc.thePlayer.inventory.addItemStackToInventory(new ItemStack(this.item.getEntityItem().getItem()));
+			props.Cash-=this.currentPrice;
+			mc.thePlayer.inventory.addItemStackToInventory(new ItemStack(Item.getItemById(Item.getIdFromItem(theitem))));
+			mc.thePlayer.inventory.inventoryChanged=true;
 			}
 			else this.mc.thePlayer.addChatMessage(new ChatComponentText("You don't have enough Money for this!"));
 		}
@@ -92,13 +96,17 @@ public class guiCreeBay extends RLM_Gui{
 			if(currentEntry>TLMItems.itemList.size()&&currentEntry-TLMItems.itemList.size()<TLMBlocks.tlmBlockList.size())
 			{
 				this.item.setEntityItemStack(new ItemStack(ExtendedItem.getItemFromBlock(TLMBlocks.tlmBlockList.get(currentEntry-TLMItems.itemList.size()))));
+				this.theitem=ExtendedItem.getItemFromBlock(TLMBlocks.tlmBlockList.get(currentEntry-TLMItems.itemList.size()));
 			}else
 				if(this.currentEntry<TLMItems.itemList.size())
 				{
 					this.item.setEntityItemStack(new ItemStack(TLMItems.itemList.get(currentEntry)));
+					this.theitem=(Item)TLMItems.itemList.get(currentEntry);
+
 				}
 				else{
 					this.item.setEntityItemStack(new ItemStack(Items.apple));
+					this.theitem=Items.apple;
 			}
 			
 			if(this.item.getEntityItem().getItem() instanceof ExtendedItem||this.item.getEntityItem().getItem() instanceof ExtendedItem){
@@ -112,10 +120,14 @@ public class guiCreeBay extends RLM_Gui{
 			if(currentEntry>TLMItems.itemList.size()&&currentEntry-TLMItems.itemList.size()<TLMBlocks.tlmBlockList.size())
 			{
 				this.item.setEntityItemStack(new ItemStack(ExtendedItem.getItemFromBlock(TLMBlocks.tlmBlockList.get(currentEntry-TLMItems.itemList.size()))));
+				this.theitem=ExtendedItem.getItemFromBlock(TLMBlocks.tlmBlockList.get(currentEntry-TLMItems.itemList.size()));
+
 			}else
 				if(this.currentEntry<TLMItems.itemList.size())
 				{
 					this.item.setEntityItemStack(new ItemStack(TLMItems.itemList.get(currentEntry)));
+					this.theitem=(Item)TLMItems.itemList.get(currentEntry);
+
 				}
 				else{
 					this.item.setEntityItemStack(new ItemStack(Items.apple));
@@ -134,16 +146,15 @@ public class guiCreeBay extends RLM_Gui{
         glTranslatef(centerX+70, centerY+12, 15.0F);
         glRotatef(itemRotation, 0.0F, 1.0F, 0.0F);
         glRotatef(180, 0.0F,0.0F, 1.0F);
-        RenderHelper.enableStandardItemLighting();
-        glScalef(50.0F,50.0F,50.0F);
-    	glPushMatrix();
+        glPushMatrix();
+        	glScalef(50.0F,50.0F,50.0F);
 	        glPushMatrix();
 	        glEnable(GL_ALPHA_TEST);
+	        glDisable(GL_CULL_FACE);
 	        	RenderManager.instance.renderEntityWithPosYaw(this.item, 0.0D, 0.0D, 0.0D, 0.0F, 1.0F);
 	            glRotatef(180, 0.0F,0.0F, 1.0F);
 	        glPopMatrix();
         glPopMatrix();
-        RenderHelper.disableStandardItemLighting();
         glPopMatrix();
     }
 	

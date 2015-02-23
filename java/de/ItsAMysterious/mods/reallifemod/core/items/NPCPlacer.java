@@ -13,8 +13,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.api.Interfaces.Buyable;
-import de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs.reallifemodNPC;
+import de.ItsAMysterious.mods.reallifemod.api.interfaces.Buyable;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.ReallifemodNPC;
 
 public class NPCPlacer extends ExtendedItem{
 	public static Minecraft mc;
@@ -88,7 +88,7 @@ public class NPCPlacer extends ExtendedItem{
                     {
                         --j;
                     }
-                    reallifemodNPC Trailer = new reallifemodNPC(world, i + 0.5F, j + 1.0F, k + 0.5F);
+                    ReallifemodNPC Trailer = new ReallifemodNPC(world, i + 0.5F, j + 1.0F, k + 0.5F);
 
                     if (!world.getCollidingBoundingBoxes(Trailer, Trailer.boundingBox.expand(-0.1D, -0.1D, -0.1D)).isEmpty())
                     {

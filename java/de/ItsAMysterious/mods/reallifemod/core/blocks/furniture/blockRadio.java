@@ -2,16 +2,17 @@ package de.ItsAMysterious.mods.reallifemod.core.blocks.furniture;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.block.BlockContainer;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.api.Materials.Materials;
+import de.ItsAMysterious.mods.reallifemod.api.util.Materials;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.guiRadio;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.radioTE;
+import de.ItsAMysterious.mods.reallifemod.core.gui.guiRadio;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.radioTE;
 
 public class blockRadio extends BlockContainer {
 
@@ -59,34 +60,14 @@ public class blockRadio extends BlockContainer {
             return false;
     }
     
-    @Override
-    public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entityliving, ItemStack itemStack)
-    {
-        int facing = MathHelper.floor_double((entityliving.rotationYaw * 4F) / 360F + 0.5D) & 3;
-        int newFacing = 0;
-        if (facing == 0)
-        {
-        	newFacing = 2;
-        }
-        if (facing == 1)
-        {
-        	newFacing = 5;
-        }
-        if (facing == 2)
-        {
-        	newFacing = 3;
-        }
-        if (facing == 3)
-        {
-        	newFacing = 4;
-        }
-        radioTE te =(radioTE) world.getTileEntity(i, j, k);
-        if (te != null && te instanceof radioTE)
-        {
-        	radioTE tet = te;
-            tet.setFacingDirection(newFacing);
-            world.markBlockForUpdate(i, j, k);
-        }
-    }
+	@Override
+	public void onBlockAdded(World world, int x, int y, int z){
+		EntityPlayer entity = Minecraft.getMinecraft().thePlayer;
+		if(entity!=null&&world!=null){
+		int le = MathHelper.floor_double((double)(entity.rotationYaw * 4.0F / 360.0F) + 0.5D) & 3;
+		world.setBlockMetadataWithNotify(x, y, z, le, 2);
+		}
+		world.markBlockForUpdate(x, y, z);
+	}
     
 }

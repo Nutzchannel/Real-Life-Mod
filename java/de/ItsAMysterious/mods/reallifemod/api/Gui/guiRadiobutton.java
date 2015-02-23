@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Gui;
+package de.ItsAMysterious.mods.reallifemod.api.gui;
 
 import java.awt.Color;
 import net.minecraft.client.Minecraft;
@@ -6,7 +6,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.util.ResourceLocation;
 
-public class guiRadiobutton extends Gui{
+public class GuiRadiobutton extends Gui{
 	private FontRenderer fontrenderObj;
 	int xPos,yPos,width;
 	public boolean checked;
@@ -16,7 +16,7 @@ public class guiRadiobutton extends Gui{
 	private int height;
 	private String text;
 	
-	public guiRadiobutton(int xPos,int yPos, String text)
+	public GuiRadiobutton(int xPos,int yPos, String text)
 	{
 		this.xPos=xPos;
 		this.yPos=yPos;

@@ -5,7 +5,7 @@ import java.util.Random;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.ItsAMysterious.mods.reallifemod.core.blocks.BlockAirExtended;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.fireplaceTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.fireplaceTE;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
@@ -24,7 +24,7 @@ public class fireplaceBlock extends BlockContainer implements ITileEntityProvide
 	public fireplaceBlock() {
 		super(Material.wood);
 		this.setBlockName("firepit");
-		this.setBlockTextureName("reallifemod:outdoor/fire");
+		this.setBlockTextureName("reallifemod:fire");
         this.setTickRandomly(true);
 	}
 	@Override

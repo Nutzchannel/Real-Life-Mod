@@ -15,7 +15,7 @@ import org.lwjgl.input.Keyboard;
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 
 public class EntityVehicle extends Entity 
 {
@@ -332,7 +332,7 @@ public class EntityVehicle extends Entity
 			this.brake();
 		}
 		
-        if(Keyboard.isKeyDown(TLM.Key_Horn.getKeyCode())){
+        if(Keyboard.isKeyDown(RealLifeMod.Key_Horn.getKeyCode())){
         	if(this.ticksExisted%20==2){
         		this.playSound("tlm:horn",1.0F,1.0F);
         	}

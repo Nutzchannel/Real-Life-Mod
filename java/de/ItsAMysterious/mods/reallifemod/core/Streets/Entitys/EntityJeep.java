@@ -1,10 +1,10 @@
-package de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys;
-
-import org.lwjgl.input.Keyboard;
+package de.ItsAMysterious.mods.reallifemod.core.streets.entitys;
 
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import org.lwjgl.input.Keyboard;
 
 public class EntityJeep extends EntityBasicVehicle{
 

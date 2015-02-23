@@ -1,7 +1,7 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks.seasonalstuff;
 
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.ChristmasTreeTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.ChristmasTreeTE;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;

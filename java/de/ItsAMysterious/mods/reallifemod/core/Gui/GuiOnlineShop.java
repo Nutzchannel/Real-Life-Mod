@@ -1,11 +1,8 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 import java.util.List;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiButton;
@@ -22,10 +19,12 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.api.Gui.RLM_Gui;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityJeep;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityTruck;
-import de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs.EntityLanz;
+import org.lwjgl.opengl.GL11;
+import cpw.mods.fml.client.FMLClientHandler;
+import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.EntityLanz;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityJeep;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityTruck;
 
 public class GuiOnlineShop extends RLM_Gui implements GuiYesNoCallback{
 	private float d=0;

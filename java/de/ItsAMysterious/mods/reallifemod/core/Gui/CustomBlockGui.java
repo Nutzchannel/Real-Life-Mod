@@ -1,16 +1,17 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-
-import de.ItsAMysterious.mods.reallifemod.core.Gui.Container.ContainerCBO;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.TileEntityCBO;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.ContainerCBO;
+import de.ItsAMysterious.mods.reallifemod.core.gui.container.TileEntityCBO;
 
 public class CustomBlockGui extends GuiContainer
 {

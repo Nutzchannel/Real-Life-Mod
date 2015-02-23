@@ -1,6 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys;
-
-import org.lwjgl.input.Keyboard;
+package de.ItsAMysterious.mods.reallifemod.core.streets.entitys;
 
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -12,6 +10,8 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import org.lwjgl.input.Keyboard;
 
 public class EntityBasicVehicle extends Entity{
 	public double speed;

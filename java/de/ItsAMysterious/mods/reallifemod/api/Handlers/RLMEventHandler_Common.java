@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.api.Handlers;
+package de.ItsAMysterious.mods.reallifemod.api.handlers;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -25,9 +25,11 @@ public class RLMEventHandler_Common {
 	@SubscribeEvent
 	public void updateRealLifeProps(PlayerTickEvent event)
 	{
+		if(event.player.getExtendedProperties("RealLifeProps")!=null){
 			EntityPlayer player=event.player;
 			RealLifeProps props=(RealLifeProps)player.getExtendedProperties("RealLifeProps");
 			props.updateStates();
+		}
 	}
 	
 	@SubscribeEvent
@@ -42,23 +44,17 @@ public class RLMEventHandler_Common {
 	
 	 @SubscribeEvent
 	 public void onItemPickup(ItemPickupEvent event){
-		financialProps cash=(financialProps) Minecraft.getMinecraft().thePlayer.getExtendedProperties(financialProps.EXT_PROP_NAME);
-
 		 if(event.pickedUp.getEntityItem().getItem()==Item.getItemFromBlock(Blocks.iron_ore)){
-				EntityPlayer player=Minecraft.getMinecraft().thePlayer;
-				cash.addCash(20);
+			 ((financialProps)event.player.getExtendedProperties("financialProps")).Cash+=20;
 		 }
 		 if(event.pickedUp.getEntityItem().getItem()==Item.getItemFromBlock(Blocks.gold_ore)){
-				EntityPlayer player=Minecraft.getMinecraft().thePlayer;
-				cash.addCash(100);
+			 ((financialProps)event.player.getExtendedProperties("financialProps")).Cash+=100;
 		 }
 		 if(event.pickedUp.getEntityItem().getItem()==Items.diamond){
-				EntityPlayer player=Minecraft.getMinecraft().thePlayer;
-				cash.addCash(500);
+			 ((financialProps)event.player.getExtendedProperties("financialProps")).Cash+=500;
 		 }
 		 if(event.pickedUp.getEntityItem().getItem()==Item.getItemFromBlock(Blocks.emerald_ore)){
-				EntityPlayer player=Minecraft.getMinecraft().thePlayer;
-				cash.addCash(1000);
+			 ((financialProps)event.player.getExtendedProperties("financialProps")).Cash+=1000;
 		 }
 		 this.wasMined=false;
 	 }

@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models;
+package de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -16,12 +16,10 @@ public class modelShield extends ModelBase
     ModelRenderer Shape42;
     ModelRenderer Shape5;
     ModelRenderer Shape52;
-  
+	public int textureWidth = 1024;
+    public int textureHeight = 1024;
   public modelShield()
   {
-    textureWidth = 1024;
-    textureHeight = 1024;
-    
     Shape1 = new ModelRenderer(this, 0, 150);
     Shape1.addBox(0F, 0F, 0F, 40, 30, 0);
     Shape1.setRotationPoint(-20F, -13F, 0F);

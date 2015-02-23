@@ -11,7 +11,7 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.client.MinecraftForgeClient;
@@ -20,107 +20,107 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
 import de.ItsAMysterious.mods.reallifemod.TLMItems;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.ChristmasPyramidTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.ChristmasTreeTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.doorwreathTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.pillarTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.rooftileTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.toiletTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.washbasinTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.chairTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.computerTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.cupboardTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.drinksmachineTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.freezerTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.lanternTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.neonlampTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.blastfurnaceTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.pissoirTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.TileEntityShield_Renderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.TileEntityTV_Renderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.TileEntityTrafficLight_Renderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.atmTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.bankTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.crashbarrierTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.fireplaceTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.heatingTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.radioTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.safeTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.toasterTER;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockBlastFurnaceRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockChairRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockCupboardRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockFreezerRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockRenderLantern;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockRenderTrafficLight;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockRendererComputer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockRendererNeonLamp;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.BlockRenderer_Pissoir;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.ChristmasPyramid_BR;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.ChristmasTreeBR;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.DoorWreathBR;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.DrinksMachineBlockRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.blockRendererBasin;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.blockTVRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.BlockRenderer.rooftileBR;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.ItemRenderer.AK47Renderer;
-import de.ItsAMysterious.mods.reallifemod.api.Renderer.ItemRenderer.uziRenderer;
-import de.ItsAMysterious.mods.reallifemod.api.Util.RLMResourceListener;
-import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.tableTER;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderAdvancedFlame;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderBullet;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderLanz;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderTGX;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderNPC;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.RenderTrailer;
-import de.ItsAMysterious.mods.reallifemod.core.Renderers.entity.renderjeep;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityJeep;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityTrailer;
-import de.ItsAMysterious.mods.reallifemod.core.Streets.Entitys.EntityTruck;
-import de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs.EntityLanz;
-import de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs.reallifemodNPC;
-import de.ItsAMysterious.mods.reallifemod.core.entitys.Particles.EntityAdvancedFlameFX;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.blockrender.BlockRenderer_Christmastree;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.blockrender.BlockRenderer_Desk;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.blockrender.BlockRenderer_Doorwreath;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.blockrender.BlockRenderer_Rooftile;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.blockrender.BlockRenderer_Toilet;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.items.AK47Renderer;
+import de.ItsAMysterious.mods.reallifemod.api.rendering.items.uziRenderer;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.EntityLanz;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.EntityRobot;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.ReallifemodNPC;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.particles.EntityAdvancedFlameFX;
 import de.ItsAMysterious.mods.reallifemod.core.entitys.weapons.EntityBullet;
 import de.ItsAMysterious.mods.reallifemod.core.items.industrial.ItemCoke;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.ChristmasTreeTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.doorwreathTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.blastfurnaceTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.chairTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.christmaspyramidTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.computerTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.cupboardTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.drinksmachineTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.freezerTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.lanteernTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.neonlampTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.pissoirTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.bilboardTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.TileEntityTV;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.rooftileTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.toiletTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.trafficlightTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.washbasinTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.toasterTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.atmTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.bankTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.crashbarrierTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.fireplaceTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.heatingTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.pillarTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.radioTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.safeTE;
-import de.ItsAMysterious.mods.reallifemod.core.rendering.TileEntitys.tableTE;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderAdvancedFlame;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderBullet;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderLanz;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderNPC;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderRobot;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderTGX;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.RenderTrailer;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.entitys.renderjeep;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.ChristmasPyramidTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.ChristmasTreeTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.TileEntityShield_Renderer;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.TileEntityTV_Renderer;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.TileEntityTrafficLight_Renderer;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.atmTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.bankTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.blastfurnaceTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.cabinetTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.chairTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.computerTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.crashbarrierTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.cupboardTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.deskTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.dishwasherTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.doorwreathTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.drinksmachineTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.espressoTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.fireplaceTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.fishtankTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.freezerTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.growpotTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.heatingTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.lanternTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.neonlampTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.pillarTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.pissoirTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.radioTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.rooftileTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.safeTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.shelfTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.sinkTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.tableTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.toasterTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.toiletTER;
+import de.ItsAMysterious.mods.reallifemod.core.rendering.tiles.washbasinTER;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityCherokee;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityTrailer;
+import de.ItsAMysterious.mods.reallifemod.core.streets.entitys.EntityTruck;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.ChristmasTreeTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.TileEntityTV;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.atmTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.bankTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.bilboardTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.blastfurnaceTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.cabinetTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.chairTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.christmaspyramidTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.computerTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.crashbarrierTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.cupboardTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.deskTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.dishwasherTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.doorwreathTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.drinksmachineTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.espressoTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.fireplaceTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.fishtankTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.freezerTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.growpotTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.heatingTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.lanteernTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.neonlampTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.pillarTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.pissoirTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.radioTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.rooftileTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.safeTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.shelfTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.sinkTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.tableTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.toasterTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.toiletTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.trafficlightTE;
+import de.ItsAMysterious.mods.reallifemod.core.tiles.washbasinTE;
 import de.ItsAMysterious.mods.reallifemod.server.ServerProxy;
 
-/**
- * 
- * @author MO
- *
- */
 public class ClientProxy extends ServerProxy{
 	public static Map<String,String> EntityNames= new HashMap<String, String>();
 	public static Map<String,String> EntitySurnames= new HashMap<String, String>();
@@ -133,7 +133,7 @@ public class ClientProxy extends ServerProxy{
 	static int cupboardRenderID, furnaceRenderID, computerRenderID, freezerRenderID, chairRenderID,
 	 basinrenderID, televisionRenderID, LanzRenderID, LowryRenderID, LanternRenderID, TrafficLightRenderID,
 	 ItemLowryRenderID, DrinksMachineRenderID, NeonLampRenderID, pissoirID, TrailerID, bottleID, deskLampID,
-	 christmaspyramid, christmastreeID, doorwreathid, pillarID,rooftileID;
+	 christmaspyramid, christmastreeID, doorwreathid, pillarID,rooftileID,toiletID, deskID;
 	public static int bedTime=0;
 	
 	public ClientProxy(){
@@ -162,14 +162,16 @@ public class ClientProxy extends ServerProxy{
 		doorwreathid=RenderingRegistry.getNextAvailableRenderId();
 		pillarID=RenderingRegistry.getNextAvailableRenderId();
 		rooftileID=RenderingRegistry.getNextAvailableRenderId();
+		toiletID=RenderingRegistry.getNextAvailableRenderId();
+		deskID=RenderingRegistry.getNextAvailableRenderId();
 	}
 	
 	@Override
 	public void registerRenderThings(){
-		super.registerRenderThings();
-        ClientRegistry.bindTileEntitySpecialRenderer(freezerTE.class,new freezerTER());
-        ClientRegistry.bindTileEntitySpecialRenderer(bilboardTE.class,new TileEntityShield_Renderer());
-    	ClientRegistry.bindTileEntitySpecialRenderer(computerTE.class,new computerTER());
+		TileEntitySpecialRenderer renderfr = new freezerTER();
+       ClientRegistry.bindTileEntitySpecialRenderer(freezerTE.class,renderfr);
+       ClientRegistry.bindTileEntitySpecialRenderer(bilboardTE.class,new TileEntityShield_Renderer());
+        ClientRegistry.bindTileEntitySpecialRenderer(computerTE.class,new computerTER());
         ClientRegistry.bindTileEntitySpecialRenderer(blastfurnaceTE.class,new blastfurnaceTER());
         ClientRegistry.bindTileEntitySpecialRenderer(cupboardTE.class, new cupboardTER());
         ClientRegistry.bindTileEntitySpecialRenderer(chairTE.class, new chairTER());
@@ -195,35 +197,49 @@ public class ClientProxy extends ServerProxy{
         ClientRegistry.bindTileEntitySpecialRenderer(heatingTE.class, new heatingTER());
     	ClientRegistry.bindTileEntitySpecialRenderer(rooftileTE.class, new rooftileTER());
     	ClientRegistry.bindTileEntitySpecialRenderer(toiletTE.class, new toiletTER());
-        RenderingRegistry.registerEntityRenderingHandler(EntityLanz.class, new RenderLanz());
+    	ClientRegistry.bindTileEntitySpecialRenderer(fishtankTE.class, new fishtankTER());
+    	ClientRegistry.bindTileEntitySpecialRenderer(cabinetTE.class, new cabinetTER());
+    	ClientRegistry.bindTileEntitySpecialRenderer(shelfTE.class, new shelfTER());
+    	ClientRegistry.bindTileEntitySpecialRenderer(dishwasherTE.class, new dishwasherTER());
+    	ClientRegistry.bindTileEntitySpecialRenderer(sinkTE.class, new sinkTER());
+		TileEntitySpecialRenderer renderfp = new growpotTER();
+		ClientRegistry.bindTileEntitySpecialRenderer(growpotTE.class, renderfp);
+    	ClientRegistry.bindTileEntitySpecialRenderer(espressoTE.class, new espressoTER());
+    	ClientRegistry.bindTileEntitySpecialRenderer(deskTE.class, new deskTER());
+    	
+    	//Tileentitys
+    	RenderingRegistry.registerEntityRenderingHandler(EntityLanz.class, new RenderLanz());
     	RenderingRegistry.registerEntityRenderingHandler(EntityTruck.class,new RenderTGX());
     	RenderingRegistry.registerEntityRenderingHandler(EntityTrailer.class, new RenderTrailer());
 		RenderingRegistry.registerEntityRenderingHandler(EntityBullet.class, new RenderBullet());
-		RenderingRegistry.registerEntityRenderingHandler(reallifemodNPC.class, new RenderNPC(0.5f));
+		RenderingRegistry.registerEntityRenderingHandler(ReallifemodNPC.class, new RenderNPC(0.5f));
+		RenderingRegistry.registerEntityRenderingHandler(EntityRobot.class, new RenderRobot(0.5f));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAdvancedFlameFX.class, new RenderAdvancedFlame());
-		RenderingRegistry.registerEntityRenderingHandler(EntityJeep.class, new renderjeep());
+		RenderingRegistry.registerEntityRenderingHandler(EntityCherokee.class, new renderjeep());
 	}
 	
 
 	@Override
 	public void registerBlockHandlers() {
 		super.registerBlockHandlers();
-		RenderingRegistry.registerBlockHandler(new BlockCupboardRenderer(cupboardRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockBlastFurnaceRenderer(furnaceRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockRendererComputer(computerRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockFreezerRenderer(freezerRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockChairRenderer(chairRenderID));
-		RenderingRegistry.registerBlockHandler(new blockRendererBasin(basinrenderID));
-		RenderingRegistry.registerBlockHandler(new blockTVRenderer(televisionRenderID));
+		/**RenderingRegistry.registerBlockHandler(new BlockRenderer_Cupboard(cupboardRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Blastfurnace(furnaceRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Computer(computerRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Freezer(freezerRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Chair(chairRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Washbasin(basinrenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_TV(televisionRenderID));
 		RenderingRegistry.registerBlockHandler(new BlockRenderer_Pissoir(pissoirID));
-		RenderingRegistry.registerBlockHandler(new BlockRenderLantern(LanternRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockRenderTrafficLight(TrafficLightRenderID));
-		RenderingRegistry.registerBlockHandler(new DrinksMachineBlockRenderer(DrinksMachineRenderID));
-		RenderingRegistry.registerBlockHandler(new BlockRendererNeonLamp(NeonLampRenderID));
-		RenderingRegistry.registerBlockHandler(new ChristmasPyramid_BR(christmaspyramid));
-		RenderingRegistry.registerBlockHandler(new ChristmasTreeBR(christmastreeID));
-		RenderingRegistry.registerBlockHandler(new DoorWreathBR(doorwreathid));
-		RenderingRegistry.registerBlockHandler(new rooftileBR(rooftileID));
+		RenderingRegistry.registerBlockHandler(new BlockRender_Lantern(LanternRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRender_Trafficlight(TrafficLightRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Drinksmachine(DrinksMachineRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Neonlamp(NeonLampRenderID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Christmaspyramid(christmaspyramid));*/
+		//RenderingRegistry.registerBlockHandler(new BlockRenderer_Doorwreath(doorwreathid));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Rooftile(rooftileID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Christmastree(christmastreeID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Desk(deskID));
+		RenderingRegistry.registerBlockHandler(new BlockRenderer_Toilet(toiletID));
 		MinecraftForgeClient.registerItemRenderer(TLMItems.ak, new AK47Renderer());
 		MinecraftForgeClient.registerItemRenderer(TLMItems.uzi, new uziRenderer());
 		}
@@ -263,24 +279,29 @@ public class ClientProxy extends ServerProxy{
 			return doorwreathid;
 		if(blockID==TLMBlocks.rooftile)
 			return rooftileID;
+		if(blockID==TLMBlocks.toilet)
+			return toiletID;
+		if(blockID==TLMBlocks.desk)
+			return deskID;
 		else return -1;
 	}
 	
 	@Override
 	public void registerEntitys(){
-		EntityRegistry.registerModEntity(EntityLanz.class, "LANZ",514, TLM.instance, 80, 1, true);
-		EntityRegistry.registerModEntity(EntityTruck.class, "TGX",RenderingRegistry.getNextAvailableRenderId(),TLM.instance,80,1,true);
-		EntityRegistry.registerModEntity(EntityBullet.class, "BULLET",515,TLM.instance,80,1,true);
-		EntityRegistry.registerModEntity(reallifemodNPC.class, "REALLIFEMODNPC",516,TLM.instance,80,1,true);
-		EntityRegistry.registerModEntity(EntityJeep.class, "JEEP",517,TLM.instance,80,1,true);
+		EntityRegistry.registerModEntity(EntityLanz.class, "LANZ",1000, RealLifeMod.instance, 80, 1, true);
+		EntityRegistry.registerModEntity(EntityTruck.class, "TGX",1001,RealLifeMod.instance,80,1,true);
+		EntityRegistry.registerModEntity(EntityBullet.class, "BULLET",1002,RealLifeMod.instance,80,1,true);
+		EntityRegistry.registerModEntity(ReallifemodNPC.class, "worker",1003,RealLifeMod.instance,80,1,true);
+		EntityRegistry.registerModEntity(EntityCherokee.class, "JEEP",1004,RealLifeMod.instance,80,1,true);
+		EntityRegistry.registerModEntity(EntityRobot.class, "Tutorialbot",1005,RealLifeMod.instance,80,1,true);
 	}
 	
 	@Override
 	public void registerTileEntities()
 	{
+	    GameRegistry.registerTileEntity(freezerTE.class, "freezerTE" );
 	    GameRegistry.registerTileEntity(cupboardTE.class, "cupboard");
 	    GameRegistry.registerTileEntity(chairTE.class, "blockChair");
-	    GameRegistry.registerTileEntity(freezerTE.class, "blockFreezer" );
 	    GameRegistry.registerTileEntity(TileEntityTV.class,"blockTelevision");
 	    GameRegistry.registerTileEntity(blastfurnaceTE.class, "blockBlastFurnace");
 	    GameRegistry.registerTileEntity(computerTE.class, "blockComputer");
@@ -303,17 +324,23 @@ public class ClientProxy extends ServerProxy{
 	    GameRegistry.registerTileEntity(atmTE.class, "atm");
 	    GameRegistry.registerTileEntity(heatingTE.class, "heatingTE");
 	    GameRegistry.registerTileEntity(rooftileTE.class, "rooftileTE");
+	    GameRegistry.registerTileEntity(toiletTE.class, "toiletTE");
+	    GameRegistry.registerTileEntity(cabinetTE.class, "cabinet");
+	    GameRegistry.registerTileEntity(shelfTE.class, "shelfTE");
+	    GameRegistry.registerTileEntity(dishwasherTE.class, "dishwasherTE");
+	    GameRegistry.registerTileEntity(fishtankTE.class, "fishtankTE");
+	    GameRegistry.registerTileEntity(growpotTE.class, "growpotTE");
 	}
 	@Override
 	public void createFolders()
     {
-        File file = new File(TLM.Dir, "assets/reallifemod");
+        File file = new File(RealLifeMod.Dir, "assets/reallifemod");
         if(!file.exists())
         	file.mkdirs();
         File check=new File(file,"sounds");
         if(!check.exists())
         	check.mkdir();
-        File names=new File(TLM.Dir,"sound.json");
+        File names=new File(RealLifeMod.Dir,"sound.json");
 
         File json=new File(file,"sound.json");
         if(!json.exists())
@@ -333,13 +360,11 @@ public class ClientProxy extends ServerProxy{
 	        	writer.close();
 			} catch (IOException e) {
 			}
-
-       ((IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new RLMResourceListener());
-
+     //  ((IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new RLMResourceListener());
     }
 	
 	public static void doNameUpdate(){
-        File file = new File(TLM.Dir, "assets/reallifemod");
+        File file = new File(RealLifeMod.Dir, "assets/reallifemod");
         File Names=new File(file,"playernames.txt");
 
     	try{
@@ -365,7 +390,7 @@ public class ClientProxy extends ServerProxy{
 	}
 	
 	public static void setName(EntityPlayer p, String Name, String Surname,String date, String gender, float money){
-        File file = new File(TLM.Dir, "assets");
+        File file = new File(RealLifeMod.Dir, "assets");
         File Names=new File(file,"playernames.txt");
     	try{
         	if(!Names.exists())
@@ -377,8 +402,6 @@ public class ClientProxy extends ServerProxy{
      		EntitySurnames.put(p.getDisplayName(), Surname);
      		BirthDates.put(p.getDisplayName(), date);
      		Genders.put(p.getDisplayName(), gender);
-     		financialProps props=financialProps.get(p);
-     		Money.put(p.getDisplayName(), props.Cash);
     	}catch(IOException e){
     		e.printStackTrace();
     	}
@@ -387,7 +410,7 @@ public class ClientProxy extends ServerProxy{
 	
 	public static void doSaving(){
 		EntityPlayer player=FMLClientHandler.instance().getClient().thePlayer;
-        File file = new File(TLM.Dir, "assets");
+        File file = new File(RealLifeMod.Dir, "assets");
         File Names=new File(file,"playernames.txt");
     	try{
         	if(!Names.exists())

@@ -1,9 +1,5 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui.Container;
+package de.ItsAMysterious.mods.reallifemod.core.gui.container;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.Slot.SlotOven;
-import de.ItsAMysterious.mods.reallifemod.core.Gui.TileEntity.OvenTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -12,6 +8,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ContainerOven extends Container
 {

@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Gui;
+package de.ItsAMysterious.mods.reallifemod.core.gui;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -8,11 +8,10 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.gui.GuiYesNoCallback;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import de.ItsAMysterious.mods.reallifemod.TLM;
-import de.ItsAMysterious.mods.reallifemod.core.Configuration.TLMSettings;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
+import de.ItsAMysterious.mods.reallifemod.core.config.TLMSettings;
 
 @SideOnly(Side.CLIENT)
 public class GuiSettings extends GuiScreen implements GuiYesNoCallback{
@@ -75,7 +74,7 @@ public class GuiSettings extends GuiScreen implements GuiYesNoCallback{
 		if (button.id==8){
 			mc.displayGuiScreen(new GuiManagement());
 		}
-		TLM.syncConfig();
+		RealLifeMod.syncConfig();
 	}
 	
     private void accept() {

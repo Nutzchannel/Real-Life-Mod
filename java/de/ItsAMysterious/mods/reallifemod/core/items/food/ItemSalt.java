@@ -16,7 +16,7 @@ public class ItemSalt extends ExtendedItemFood{
 	public ItemSalt(int HealAmount, float saturationModifier, boolean isWolfsFavoriteMeat) {
 		super(HealAmount, saturationModifier, isWolfsFavoriteMeat);
 		setUnlocalizedName("salt");
-		setTextureName("reallifemod:Salt");
+		setTextureName("reallifemod:salt");
 		this.alwaysEdible=true;
 		}
 

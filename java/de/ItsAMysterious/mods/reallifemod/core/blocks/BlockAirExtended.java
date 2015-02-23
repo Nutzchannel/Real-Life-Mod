@@ -1,6 +1,6 @@
 package de.ItsAMysterious.mods.reallifemod.core.blocks;
 
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.AxisAlignedBB;
@@ -14,7 +14,6 @@ public class BlockAirExtended extends Block{
 		  super(Material.wood);
 		  setBlockName("airExtended");
 		  TemperaturC=28;
-		  this.setCreativeTab(TLM.Outdoor);
 	    }
 
 	    /**

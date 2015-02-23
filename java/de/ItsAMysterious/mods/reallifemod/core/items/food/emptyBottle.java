@@ -1,6 +1,6 @@
 package de.ItsAMysterious.mods.reallifemod.core.items.food;
 
-import de.ItsAMysterious.mods.reallifemod.TLM;
+import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
 import net.minecraft.client.Minecraft;
@@ -20,7 +20,7 @@ public class emptyBottle extends ExtendedItem{
 	public emptyBottle() {
 		this.setUnlocalizedName("bottle");
 		this.setTextureName("reallifemod:bottle");
-		this.setCreativeTab(TLM.TLMFood);
+		this.setCreativeTab(RealLifeMod.rlmfood);
 		this.setMaxStackSize(1);
 		this.setPrice(0.25F);
 	}

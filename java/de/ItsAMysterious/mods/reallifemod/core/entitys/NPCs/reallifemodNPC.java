@@ -1,6 +1,5 @@
-package de.ItsAMysterious.mods.reallifemod.core.entitys.NPCs;
+package de.ItsAMysterious.mods.reallifemod.core.entitys.npcs;
 
-import de.ItsAMysterious.mods.reallifemod.core.entitys.AI.EntityAIExtinguish;
 import net.minecraft.block.BlockFire;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.INpc;
@@ -14,24 +13,26 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import de.ItsAMysterious.mods.reallifemod.api.handlers.SpeechHandler;
+import de.ItsAMysterious.mods.reallifemod.core.entitys.ai.EntityAIExtinguish;
 
-public class reallifemodNPC extends EntityAgeable implements INpc{
+public class ReallifemodNPC extends EntityAgeable implements INpc{
 	public enum Job{
 		NOJOB,POLICEMEN,FIREMEN, MINOR;
 	}
 	public int jobIndex=0;
 	public Job currentJob=Job.NOJOB;
+	private SpeechHandler handler;
 
-	public reallifemodNPC(World world) {
+	public ReallifemodNPC(World world) {
 		super(world);
+		this.handler=new SpeechHandler();
         this.setSize(0.6F, 1.8F);
         this.getNavigator().setBreakDoors(true);
         this.getNavigator().setAvoidsWater(true);
@@ -40,7 +41,7 @@ public class reallifemodNPC extends EntityAgeable implements INpc{
 
 	}
 	
-	public reallifemodNPC(World world,double d, double e,double f) {
+	public ReallifemodNPC(World world,double d, double e,double f) {
 		super(world);
 		this.setPosition(d, e, f);
 		this.setHealth(10);
@@ -50,14 +51,13 @@ public class reallifemodNPC extends EntityAgeable implements INpc{
         this.tasks.addTask(4, new EntityAIOpenDoor(this, true));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
         this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityPlayer.class, 3.0F, 1.0F));
-        this.tasks.addTask(9, new EntityAIWatchClosest2(this, EntityVillager.class, 5.0F, 0.02F));
-        this.tasks.addTask(9, new EntityAIWander(this, 1.0D));
+        this.tasks.addTask(9, new EntityAIWander(this, 1.5D));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, BlockFire.class, 8.0F));
         this.tasks.addTask(11, new EntityAIExtinguish(this, 10));
         this.ignoreFrustumCheck=false;
 	}
 	
-	public reallifemodNPC(World world,double d, double e,double f, Job thejob) {
+	public ReallifemodNPC(World world,double d, double e,double f, Job thejob) {
 		this(world, d, e, f);
 		this.setJob(thejob);
 		this.isImmuneToFire=true;
@@ -150,12 +150,23 @@ public class reallifemodNPC extends EntityAgeable implements INpc{
     		this.setJob(Job.POLICEMEN);
     		break;
     	}
-    	player.addChatMessage(new ChatComponentText(this.currentLine()));
+    	if(!player.worldObj.isRemote){
+    		if(this.currentJob!=Job.NOJOB){
+    			this.handler.speechSynth(	10.0F, 0.0F, 5.0F, 10, "Hello, my name is Steve and i am a "+this.currentLine()+".");}else
+    			{
+        			this.handler.speechSynth(	10.0F, 0.0F, 5.0F, 10, "Hello, my name is Steve"
+        					+ " and i don't have a Job!I'm a very poor man!");
+
+    			}
+    	//SpeechHandler.speechSynth(1,4.5F, 5, 35, "How are you?");
+    	player.addChatComponentMessage(new ChatComponentText("Hello, my name is Steve and i am a "+this.currentLine()+"."));
+    }
+    	//player.addChatMessage(new ChatComponentText(this.currentLine()));
         return true;
     }
 
 	private String currentLine() {
-		return "Hello "+EnumChatFormatting.getTextWithoutFormattingCodes("@P");
+		return this.currentJob.name().toLowerCase();
 	}
 
 	
@@ -174,7 +185,7 @@ public class reallifemodNPC extends EntityAgeable implements INpc{
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable entity) {
-		return null;
+		return entity;
 	}
 
 }

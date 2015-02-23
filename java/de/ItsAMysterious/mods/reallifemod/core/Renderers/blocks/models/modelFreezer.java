@@ -1,4 +1,4 @@
-package de.ItsAMysterious.mods.reallifemod.core.Renderers.blocks.models;
+package de.ItsAMysterious.mods.reallifemod.core.renderers.blocks.models;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -16,10 +16,12 @@ public class modelFreezer extends ModelBase
     public static ModelRenderer TL;
     public static ModelRenderer TR;
 	BlockFreezer TB;
+	
+	public int textureWidth = 512;
+    public int textureHeight = 512;
+
   public modelFreezer()
   {
-    textureWidth = 512;
-    textureHeight = 512;
     
       Shape1 = new ModelRenderer(this, 0, 150);
       Shape1.addBox(0F, 0F, 0F, 32, 17, 1);
