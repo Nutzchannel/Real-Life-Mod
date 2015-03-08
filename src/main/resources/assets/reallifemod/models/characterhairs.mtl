@@ -1,0 +1,156 @@
+# Blender MTL File: 'minecraftcharacter.blend'
+# Material Count: 14
+
+newmtl _2d1e816_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\62d1e816.dds
+
+newmtl _4bd0ac9_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\04bd0ac9.dds
+
+newmtl _5bd6bc7_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\15bd6bc7.dds
+
+newmtl _5bd6bc7_dds_15bd6bc7.dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd C:\Users\MO\Desktop\Boy\Texture\15bd6bc7.dds
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\15bd6bc7.dds
+
+newmtl _88a78da_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd C:\Users\MO\Desktop\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\488a78da.dds
+
+newmtl _88a78da_dds_corps.png.001
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\488a78da.dds
+
+newmtl _c161e48_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd C:\Users\MO\Desktop\Boy\Texture\9c161e48.dds
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\9c161e48.dds
+
+newmtl _c161e48_dds_corps.png.001
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\9c161e48.dds
+
+newmtl _feb7db1_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\5feb7db1.dds
+
+newmtl a1c1b0f5_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\a1c1b0f5.dds
+
+newmtl c7d648bf_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\c7d648bf.dds
+
+newmtl c7d648bf_dds_corps.png
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd C:\Users\MO\Desktop\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\c7d648bf.dds
+
+newmtl d6428c57_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\d6428c57.dds
+
+newmtl db8f38ac_dds
+Ns 1.960784
+Ka 0.000000 0.000000 0.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 0.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\corps.png
+map_d C:\\Users\\MO\\Desktop\\Boy\\Texture\\db8f38ac.dds
