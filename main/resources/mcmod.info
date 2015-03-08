@@ -1,0 +1,16 @@
+[
+{
+  "modid": "reallifemod",
+  "name": "Real Life Mod",
+  "description": "This mod makes minecraft more like the real life. It adds a money and bank system to sell and buy blocks and items, a better minecraft survival including temperature, thirst, going to the toilet etc. Just the things we are doing all day long. It also adds tons off blocks, items and entitys, including realistic cars, furniture, tv's and many other things that improve the real life feeling in minecraft. Currently this mod is in a very WIP-state because of that some things are a little bit buggy.",
+  "version": "0.14",
+ "mcversion":"${mcversion}",
+  "url": "",
+  "updateUrl": "http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/2196915-real-life-mod-updated-alpha-0-1-3-chatterbot",
+  "authorList": ["\u00A7aItsAMysterious" , "\u00A7fTrident_Killer"],
+  "credits": "ItsAMysterious,Trident_Killer,jalu1,LRA_10,Minsa20,Raul9150",
+  "logoFile": "logo.jpg",
+  "screenshots": ["logo.jpg"],
+  "dependencies": []
+  }
+  ]
