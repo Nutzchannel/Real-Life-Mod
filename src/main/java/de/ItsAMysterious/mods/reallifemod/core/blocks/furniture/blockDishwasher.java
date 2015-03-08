@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.util.Materials;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.dishwasherTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.fishtankTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.shelfTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.toasterTE;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class blockDishwasher extends BlockContainer {
 	public blockDishwasher() {

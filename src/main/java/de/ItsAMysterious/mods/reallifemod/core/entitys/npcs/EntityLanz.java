@@ -1,9 +1,5 @@
 package de.ItsAMysterious.mods.reallifemod.core.entitys.npcs;
 
-import org.lwjgl.input.Keyboard;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -13,6 +9,10 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+import org.lwjgl.input.Keyboard;
 
 public class EntityLanz extends Entity 
 {
@@ -71,7 +71,6 @@ public class EntityLanz extends Entity
 	protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {}
 
 	
-	@Override
 	protected void updateFallState(double p_70064_1_, boolean p_70064_3_)
     {
         int i = MathHelper.floor_double(this.posX);
@@ -82,7 +81,7 @@ public class EntityLanz extends Entity
         {
             if (this.fallDistance > 3.0F)
             {
-                this.fall(this.fallDistance);
+                this.fall(this.fallDistance, this.fallDistance);
 
                 if (!this.worldObj.isRemote && !this.isDead)
                 {
@@ -93,7 +92,7 @@ public class EntityLanz extends Entity
 
                 this.fallDistance = 0.0F;
             }
-        }
+        }           //worldObj.getBlock(float, float, float)
         else if (this.worldObj.getBlock(i, j - 1, k).getMaterial() == Material.air && p_70064_1_ < 0.0D)
         {
             this.fallDistance = (float)(this.fallDistance - p_70064_1_);
@@ -103,7 +102,7 @@ public class EntityLanz extends Entity
 	@Override
 	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
 	{
-		if (this.isEntityInvulnerable())
+		if (this.isEntityInvulnerable(p_70097_1_))
 		{
 			return false;
 		}

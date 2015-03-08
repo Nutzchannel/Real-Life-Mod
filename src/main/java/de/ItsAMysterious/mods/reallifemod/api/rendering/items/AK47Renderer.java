@@ -1,13 +1,15 @@
 package de.ItsAMysterious.mods.reallifemod.api.rendering.items;
 
-import static org.lwjgl.opengl.GL11.*;
-import cpw.mods.fml.client.FMLClientHandler;
-import de.ItsAMysterious.mods.reallifemod.core.items.AK47Item;
+import static org.lwjgl.opengl.GL11.glPopMatrix;
+import static org.lwjgl.opengl.GL11.glPushMatrix;
+import static org.lwjgl.opengl.GL11.glRotatef;
+import static org.lwjgl.opengl.GL11.glScalef;
+import static org.lwjgl.opengl.GL11.glTranslatef;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
-import net.minecraftforge.client.model.AdvancedModelLoader;
-import net.minecraftforge.client.model.IModelCustom;
+import net.minecraftforge.fml.client.FMLClientHandler;
+import de.ItsAMysterious.mods.reallifemod.core.items.AK47Item;
 
 public class AK47Renderer implements IItemRenderer
 {

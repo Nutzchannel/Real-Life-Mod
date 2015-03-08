@@ -12,9 +12,9 @@ import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.RealLifeProperties;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class TLM_EventHandler 
 {

@@ -70,7 +70,7 @@ public class TLMBlocks {
 	
 	public static void defineBlocks(){
 		FluidRegistry.registerFluid(meltedI);
-		tlmBlockList.add(meltedIron = new blockMeltedIron(meltedI).setBlockName("ironmeldt"));
+		tlmBlockList.add(meltedIron = new blockMeltedIron(meltedI).setUnlocalizedName("ironmeldt"));
 		meltedI.setUnlocalizedName(meltedIron.getUnlocalizedName());
 		tlmBlockList.add(boxbush = new BlockBuchs(Material.grass).setCreativeTab(RealLifeMod.Outdoor).setStepSound(Block.soundTypeGrass));
 		tlmBlockList.add(advertisingShield = new blockBilboard(Material.wood).setCreativeTab(RealLifeMod.TLMIndustry));
@@ -85,8 +85,8 @@ public class TLMBlocks {
 		tlmBlockList.add(laterne=new BlockLantern().setCreativeTab(RealLifeMod.Streets));
 		tlmBlockList.add(TrafficLight=new BlockTrafficLight().setCreativeTab(RealLifeMod.Streets));
 		tlmBlockList.add(blockTar=new BlockTar().setCreativeTab(RealLifeMod.Streets));
-		tlmBlockList.add(BlockTarLine=new BlockTar().setBlockTextureName("reallifemod:tarWhiteLine").setBlockName("whiteline1").setCreativeTab(RealLifeMod.Streets));
-		tlmBlockList.add(BlockTarLine2=new BlockTar().setBlockTextureName("reallifemod:tarWhiteLine2").setBlockName("whiteline2").setCreativeTab(RealLifeMod.Streets));
+		tlmBlockList.add(BlockTarLine=new BlockTar().setUnlocalizedName("whiteline1").setCreativeTab(RealLifeMod.Streets)); // tarWhiteLine
+		tlmBlockList.add(BlockTarLine2=new BlockTar().setUnlocalizedName("whiteline2").setCreativeTab(RealLifeMod.Streets)); // tarWhiteLine2
 		tlmBlockList.add(DrinksMachine=new BlockDrinksMachine().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(NeonLamp=new blockNeonLamp().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(pissoir=new BlockPissoir().setCreativeTab(RealLifeMod.Furniture));
@@ -97,9 +97,9 @@ public class TLMBlocks {
 		tlmBlockList.add(BlockDoorwreath=new doorwreath().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(Marmor=new ResourceBlock("marmor",Material.rock));
 		tlmBlockList.add(cb=new crashbarrierBl().setCreativeTab(RealLifeMod.Streets));
-		tlmBlockList.add(pillarB=new pillarBlock(Material.rock,pillarType.ROCK).setBlockTextureName("minecraft:brick").setBlockName("pillar-bricks"));
-		tlmBlockList.add(pillarI=new pillarBlock(Material.iron, pillarType.IRON).setBlockTextureName("minecraft:iron_block").setBlockName("pillar-iron"));
-		tlmBlockList.add(pillarM=new pillarBlock(Materials.marmor, pillarType.MARMOR).setBlockTextureName("reallifemod:marmor").setBlockName("pillar-marmor"));
+		tlmBlockList.add(pillarB=new pillarBlock(Material.rock,pillarType.ROCK).setUnlocalizedName("pillar-bricks")); // mc brick
+		tlmBlockList.add(pillarI=new pillarBlock(Material.iron, pillarType.IRON).setUnlocalizedName("pillar-iron")); // mc iron_block
+		tlmBlockList.add(pillarM=new pillarBlock(Materials.marmor, pillarType.MARMOR).setUnlocalizedName("pillar-marmor")); // marmor???
 		tlmBlockList.add(safe=new blockSafe().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(bank=new bankBlock().setCreativeTab(RealLifeMod.Outdoor));
 		tlmBlockList.add(table=new blockTable().setCreativeTab(RealLifeMod.Furniture));
@@ -117,9 +117,9 @@ public class TLMBlocks {
 		tlmBlockList.add(sink=new blockSink().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(marygold=new blockMaryGold().setCreativeTab(RealLifeMod.medicine));
 		tlmBlockList.add(growpot=new blockGrowpot(Material.clay));
-		tlmBlockList.add(parquet=new ResourceBlock(Material.wood).setBlockName("parquetBlock").setCreativeTab(RealLifeMod.Furniture).setBlockTextureName("reallifemod:parquet"));
-		tlmBlockList.add(parquet=new BlockFlooring(Material.wood).setBlockName("parquet").setCreativeTab(RealLifeMod.Furniture).setBlockTextureName("reallifemod:parquet"));
-		tlmBlockList.add(lenoleum=new BlockFlooring(Materials.plastic).setBlockName("lenoleum").setCreativeTab(RealLifeMod.Furniture).setBlockTextureName("reallifemod:lenoleum"));
+		tlmBlockList.add(parquet=new ResourceBlock(Material.wood).setUnlocalizedName("parquetBlock").setCreativeTab(RealLifeMod.Furniture)); // parquet
+		tlmBlockList.add(parquet=new BlockFlooring(Material.wood).setUnlocalizedName("parquet").setCreativeTab(RealLifeMod.Furniture)); // parquet
+		tlmBlockList.add(lenoleum=new BlockFlooring(Materials.plastic).setUnlocalizedName("lenoleum").setCreativeTab(RealLifeMod.Furniture)); // lenoleum (linoleum)
 		tlmBlockList.add(espresso=new blockEspresso().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(desk=new BlockDesk().setCreativeTab(RealLifeMod.Furniture));
 		tlmBlockList.add(railing=new blockRailing().setCreativeTab(RealLifeMod.Furniture));

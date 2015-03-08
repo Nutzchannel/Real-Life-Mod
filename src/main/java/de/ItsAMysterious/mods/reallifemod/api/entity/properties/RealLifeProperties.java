@@ -3,8 +3,6 @@ package de.ItsAMysterious.mods.reallifemod.api.entity.properties;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.lwjgl.util.vector.Vector3f;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +20,8 @@ import net.minecraft.world.biome.BiomeGenPlains;
 import net.minecraft.world.biome.BiomeGenRiver;
 import net.minecraft.world.biome.BiomeGenSnow;
 import net.minecraftforge.common.IExtendedEntityProperties;
+
+import org.lwjgl.util.vector.Vector3f;
 
 public class RealLifeProperties implements IExtendedEntityProperties{
 	public static enum Moods{

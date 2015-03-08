@@ -26,7 +26,10 @@ public class ServerProxy  {
 	public void createFolders(){}
 
 
-
+	public void registerRenders()
+	{
+		
+	}
 
 }
 	

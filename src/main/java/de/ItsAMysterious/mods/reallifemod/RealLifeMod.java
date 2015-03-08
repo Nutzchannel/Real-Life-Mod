@@ -30,6 +30,7 @@ import de.ItsAMysterious.mods.reallifemod.api.handlers.TLM_EventHandler;
 import de.ItsAMysterious.mods.reallifemod.api.util.TLMCustomCreativeTabs;
 import de.ItsAMysterious.mods.reallifemod.config.RealLifeModConfig;
 import de.ItsAMysterious.mods.reallifemod.core.gui.reallifemodHUD;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.server.RLMCommands;
 import de.ItsAMysterious.mods.reallifemod.server.ServerProxy;
 import de.ItsAMysterious.mods.reallifemod.server.TutorialBotCommand;
@@ -40,7 +41,7 @@ public class RealLifeMod {
 	@Mod.Instance(Reference.MOD_ID)
 	public static RealLifeMod instance;
 
-	@SidedProxy(clientSide = "de.ItsAMysterious.mods.reallifemod.client.ClientProxy", serverSide = "de.ItsAMysterious.mods.reallifemod.server.ServerProxy")
+	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
 	public static ServerProxy proxy;
 	public static Logger log = Logger.getLogger("Minecraft");
 

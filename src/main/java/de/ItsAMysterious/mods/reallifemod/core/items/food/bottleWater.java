@@ -5,9 +5,9 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.RealLifeProperties;
 import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class bottleWater extends ExtendedItem{
 	
@@ -17,6 +17,10 @@ public class bottleWater extends ExtendedItem{
 		this.setCreativeTab(RealLifeMod.rlmfood);
 		this.setMaxStackSize(1);
 		this.setPrice(0.7F);
+	}
+	private void setTextureName(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack)

@@ -1,7 +1,7 @@
 package de.ItsAMysterious.mods.reallifemod.core.gui.container;
 
 import cpw.mods.fml.common.FMLCommonHandler;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;

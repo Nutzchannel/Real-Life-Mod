@@ -3,11 +3,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
@@ -27,7 +29,6 @@ public class RLMCommands implements ICommand
         return 0; 
     } 
 
-    @Override 
     public String getCommandName() 
     { 
         return "freeMoney"; 
@@ -39,13 +40,11 @@ public class RLMCommands implements ICommand
         return "freeMoney"; 
     } 
 
-    @Override 
     public List getCommandAliases() 
     { 
         return this.aliases;
     } 
 
-    @Override 
     public void processCommand(ICommandSender sender, String[] argString)
     { 
         EntityPlayer player;
@@ -55,13 +54,11 @@ public class RLMCommands implements ICommand
         } 
     } 
 
-    @Override 
     public boolean canCommandSenderUseCommand(ICommandSender var1) 
     { 
         return true;
     } 
 
-    @Override  
     public List addTabCompletionOptions(ICommandSender var1, String[] var2) 
     { 
         return null; 
@@ -71,5 +68,37 @@ public class RLMCommands implements ICommand
     public boolean isUsernameIndex(String[] var1, int var2) 
     { 
         return false;
-    } 
+    }
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List getAliases() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void execute(ICommandSender sender, String[] args)
+			throws CommandException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean canCommandSenderUse(ICommandSender sender) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List addTabCompletionOptions(ICommandSender sender, String[] args,
+			BlockPos pos) {
+		// TODO Auto-generated method stub
+		return null;
+	} 
 }

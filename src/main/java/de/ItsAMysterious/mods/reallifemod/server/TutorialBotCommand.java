@@ -4,11 +4,13 @@ import java.util.List;
 
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
 import de.ItsAMysterious.mods.reallifemod.core.entitys.npcs.EntityRobot;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
@@ -28,7 +30,6 @@ public class TutorialBotCommand implements ICommand
         return 0; 
     } 
 
-    @Override 
     public String getCommandName() 
     { 
         return "spawnHelperbot"; 
@@ -40,13 +41,11 @@ public class TutorialBotCommand implements ICommand
         return "spawnHelperbot"; 
     } 
 
-    @Override 
     public List getCommandAliases() 
     { 
         return this.aliases;
     } 
 
-    @Override 
     public void processCommand(ICommandSender sender, String[] argString)
     { 
         EntityPlayer player;
@@ -59,13 +58,11 @@ public class TutorialBotCommand implements ICommand
         } 
     } 
 
-    @Override 
     public boolean canCommandSenderUseCommand(ICommandSender var1) 
     { 
         return true;
     } 
 
-    @Override  
     public List addTabCompletionOptions(ICommandSender var1, String[] var2) 
     { 
         return null; 
@@ -75,5 +72,32 @@ public class TutorialBotCommand implements ICommand
     public boolean isUsernameIndex(String[] var1, int var2) 
     { 
         return false;
-    } 
+    }
+
+	@Override
+	public String getName() {
+		return null;
+	}
+
+	@Override
+	public List getAliases() {
+		return null;
+	}
+
+	@Override
+	public void execute(ICommandSender sender, String[] args)
+			throws CommandException {
+		
+	}
+
+	@Override
+	public boolean canCommandSenderUse(ICommandSender sender) {
+		return false;
+	}
+
+	@Override
+	public List addTabCompletionOptions(ICommandSender sender, String[] args,
+			BlockPos pos) {
+		return null;
+	} 
 }

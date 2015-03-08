@@ -1,8 +1,8 @@
 package de.ItsAMysterious.mods.reallifemod.core.items.food;
 
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

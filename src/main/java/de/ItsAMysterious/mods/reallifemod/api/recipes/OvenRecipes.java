@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

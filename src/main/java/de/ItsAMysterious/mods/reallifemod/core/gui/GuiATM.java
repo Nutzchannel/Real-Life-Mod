@@ -5,9 +5,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class GuiATM extends RLM_Gui{
 	public int buttonCountY=0;

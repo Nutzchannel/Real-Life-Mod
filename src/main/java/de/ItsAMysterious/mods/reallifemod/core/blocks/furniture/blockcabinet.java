@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.util.Materials;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.cabinetTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.fishtankTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.toasterTE;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class blockcabinet extends BlockContainer {
 	public blockcabinet() {

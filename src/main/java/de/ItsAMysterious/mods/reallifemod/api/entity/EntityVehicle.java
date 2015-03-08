@@ -5,16 +5,19 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
 import org.lwjgl.input.Keyboard;
-import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 
 public class EntityVehicle extends Entity 
@@ -47,6 +50,7 @@ public class EntityVehicle extends Entity
 	public boolean damaged;
 	public boolean isBraking;
 	private float ccm=1.0F;
+	private float yOffset;
 
 
 	public EntityVehicle(World world) {
@@ -90,7 +94,7 @@ public class EntityVehicle extends Entity
     @Override
 	public AxisAlignedBB getBoundingBox()
     {
-        return this.boundingBox;
+        return this.getBoundingBox();
     }
 
     @Override
@@ -124,7 +128,7 @@ public class EntityVehicle extends Entity
     @Override
 	public boolean attackEntityFrom(DamageSource p_70097_1_, float p_70097_2_)
     {
-        if (this.isEntityInvulnerable())
+        if (this.isEntityInvulnerable(p_70097_1_))
         {
             return false;
         }
@@ -159,7 +163,12 @@ public class EntityVehicle extends Entity
         }
     }
 
-    /**
+    private void func_145778_a(Item boat, int i, float f) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
      * Setups the entity to do the hurt animation. Only used by packets in multiplayer.
      */
     @Override
@@ -185,8 +194,7 @@ public class EntityVehicle extends Entity
      * Sets the position and rotation. Only difference from the other one is no bounding on the rotation. Args: posX,
      * posY, posZ, yaw, pitch
      */
-    @Override
-	@SideOnly(Side.CLIENT)
+    @SideOnly(Side.CLIENT)
     public void setPositionAndRotation2(double p_70056_1_, double p_70056_3_, double p_70056_5_, float p_70056_7_, float p_70056_8_, int p_70056_9_)
     {
         this.truckX = p_70056_1_;
@@ -366,9 +374,9 @@ public class EntityVehicle extends Entity
 			}
 		}
         
-        this.boundingBox.calculateXOffset(this.boundingBox, this.motionX);
-        this.boundingBox.calculateYOffset(this.boundingBox, this.motionY);
-        this.boundingBox.calculateZOffset(this.boundingBox, this.motionZ);
+        this.getBoundingBox().calculateXOffset(this.getBoundingBox(), this.motionX);
+        this.getBoundingBox().calculateYOffset(this.getBoundingBox(), this.motionY);
+        this.getBoundingBox().calculateZOffset(this.boundingBox, this.motionZ);
 
         double d2;
         double d4;
@@ -574,7 +582,7 @@ public class EntityVehicle extends Entity
         {
             if (this.fallDistance > 3.0F)
             {
-                this.fall(this.fallDistance);
+                this.fall(this.fallDistance, this.fallDistance);
 
                 if (!this.worldObj.isRemote && !this.isDead)
                 {

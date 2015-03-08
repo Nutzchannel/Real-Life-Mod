@@ -10,10 +10,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.util.Materials;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.fishtankTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.toasterTE;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class blockfishtank extends BlockContainer {
 	public blockfishtank() {

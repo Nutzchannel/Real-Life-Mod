@@ -13,8 +13,8 @@ import net.minecraft.util.ResourceLocation;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class GuiEspresso extends GuiScreen{
 	public String Displaymessage="";

@@ -1,3 +1,9 @@
+/*
+ * DOESN'T WORK!
+ * Needs a CRAPLOAD of rendering code
+ * .json
+ */
+
 package de.ItsAMysterious.mods.reallifemod.client;
 
 import java.io.BufferedReader;
@@ -22,7 +28,6 @@ import net.minecraftforge.fml.common.registry.EntityRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.rendering.items.AK47Renderer;
 import de.ItsAMysterious.mods.reallifemod.api.rendering.items.uziRenderer;
 import de.ItsAMysterious.mods.reallifemod.config.RealLifeModConfig;
@@ -138,9 +143,10 @@ import de.ItsAMysterious.mods.reallifemod.core.tiles.toasterTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.toiletTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.trafficlightTE;
 import de.ItsAMysterious.mods.reallifemod.core.tiles.washbasinTE;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.server.ServerProxy;
 
-public class ClientProxy extends ServerProxy{
+public class ClientProxy extends ServerProxy {
 	public static Map<String,String> EntityNames= new HashMap<String, String>();
 	public static Map<String,String> EntitySurnames= new HashMap<String, String>();
 	public static Map<String,String> BirthDates= new HashMap<String, String>();
@@ -458,7 +464,13 @@ public class ClientProxy extends ServerProxy{
     
 	@Override
 	public void registerThings() {
-		GameRegistry.registerFuelHandler(new ItemCoke());
+//		GameRegistry.registerFuelHandler(new ItemCoke(getBurnTime));
+	}
+	
+	@Override
+	public void registerRenders()
+	{
+		TLMItems.registerItems();
 	}
 	
 }

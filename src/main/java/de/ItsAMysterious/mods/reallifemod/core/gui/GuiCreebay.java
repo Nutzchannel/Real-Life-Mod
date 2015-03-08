@@ -21,11 +21,11 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import de.ItsAMysterious.mods.reallifemod.TLMBlocks;
-import de.ItsAMysterious.mods.reallifemod.TLMItems;
 import de.ItsAMysterious.mods.reallifemod.api.entity.properties.financialProps;
 import de.ItsAMysterious.mods.reallifemod.api.gui.RLM_Gui;
 import de.ItsAMysterious.mods.reallifemod.client.ClientProxy;
 import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
+import de.ItsAMysterious.mods.reallifemod.init.TLMItems;
 
 public class GuiCreebay extends RLM_Gui{
 	public int currentEntry=0;

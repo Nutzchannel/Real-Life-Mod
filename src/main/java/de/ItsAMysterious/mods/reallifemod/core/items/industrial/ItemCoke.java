@@ -1,14 +1,12 @@
 package de.ItsAMysterious.mods.reallifemod.core.items.industrial;
 
-import cpw.mods.fml.common.IFuelHandler;
-import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.IFuelHandler;
+import de.ItsAMysterious.mods.reallifemod.core.items.ExtendedItem;
 
 public class ItemCoke extends ExtendedItem implements IFuelHandler{
 	public ItemCoke(){
-	this.setUnlocalizedName("coke");
-	setTextureName("reallifemod:itemCoke");
+	this.setUnlocalizedName("coke"); // itemCoke
 	this.shouldRotateAroundWhenRendering();
 	this.setMaxDamage(0);
 	this.setPrice(15.0);
