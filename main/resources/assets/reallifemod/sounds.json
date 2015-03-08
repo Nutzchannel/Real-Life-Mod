@@ -1,0 +1,11 @@
+{
+"diesel": {"category": "ambient","sounds": [{"name": "truck_running","stream": true}]},
+"horn": {"category": "ambient","sounds": [{"name": "horn","stream": true}]},
+"door_close": {"category": "ambient","sounds": [{"name": "DoorClose","stream": true}]},
+"coins": {"category": "ambient","sounds": [{"name": "coins_fall","stream": true}]},
+"AK47_Shoot": {"category": "ambient","sounds": [{"name": "shot","stream": true}]},
+"uzi_shoot":{"category": "ambient","sounds": [{"name": "uzi_shoot","stream": true}]},
+"reversebeep":{"category": "ambient","sounds": [{"name": "truck_reverse","stream": true}]},
+"test":{"category": "ambient","sounds": [{"name": "test","stream": true}]},
+"song":{"category": "ambient","sounds": [{"name": "song","stream": true}]}
+}

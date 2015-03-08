@@ -1,0 +1,27 @@
+//items
+item.itemLanz.name=Lanz Bulldog
+item.cracker.name=Cracker
+item.ingotSteel.name=Stahlbarren
+item.itemSalt.name=Salz
+item.itemDough.name=Keksteig
+item.steelAxe.name=Stahlaxt
+item.banana.name=Banane
+tile.freezer.name=Kühltruhe
+item.itemCoke.name=Koks
+items.dirtySteel.name=schmutziger Stahl
+item.chips.name=Pommes
+item.itemScrabbedMetal.name=Schrott
+item.emergencyHelicopter.name=Rettungshubschrauber
+
+//-----------blocks
+tile.meltedIron.name=geschmolzenes eisen
+tile.buchsBush.name=Buchsbaum
+tile.mine.name=Tretmine
+tile.blastFurnace.name=Hochofen
+tile.ironmeldt.name=geschmolzenes Eisen-Block
+tile.tile.name=Küchenfliese
+tile.advertisingShield.name=Werbeschild
+tile.blockCupboard.name=Kleiderschrank
+tile.blockTelevison.name=Fernseher
+
+

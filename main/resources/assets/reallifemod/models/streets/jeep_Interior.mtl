@@ -1,0 +1,52 @@
+# Blender MTL File: 'jeep.blend'
+# Material Count: 5
+
+newmtl Chrome_met
+Ns 203.921569
+Ka 0.000000 0.000000 0.000000
+Kd 0.181961 0.181961 0.181961
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\entity\VehicleTextures\jeeptexture.png
+
+newmtl Interieur_floor
+Ns 56.862745
+Ka 0.000000 0.000000 0.000000
+Kd 0.131765 0.131765 0.131765
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\entity\VehicleTextures\jeeptexture.png
+
+newmtl Interior
+Ns 203.921569
+Ka 0.000000 0.000000 0.000000
+Kd 0.181961 0.181961 0.181961
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\entity\VehicleTextures\jeeptexture.png
+
+newmtl Mirror
+Ns 39.215686
+Ka 0.000000 0.000000 0.000000
+Kd 0.247843 0.247843 0.247843
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\entity\VehicleTextures\jeeptexture.png
+
+newmtl Seats
+Ns 119.607843
+Ka 0.000000 0.000000 0.000000
+Kd 0.307451 0.307451 0.307451
+Ks 1.000000 1.000000 1.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd D:\Programmieren\forge-1.7.10-10.13.2.1291\src\main\resources\assets\reallifemod\textures\entity\VehicleTextures\jeeptexture.png
