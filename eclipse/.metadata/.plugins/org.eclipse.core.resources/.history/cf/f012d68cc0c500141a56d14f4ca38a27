@@ -8,17 +8,16 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import org.lwjgl.input.Keyboard;
 
+import net.minecraftforge.fml.client.FMLClientHandler;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import de.ItsAMysterious.mods.reallifemod.RealLifeMod;
 
 public class EntityVehicle extends Entity 
@@ -85,7 +84,7 @@ public class EntityVehicle extends Entity
     @Override
 	public AxisAlignedBB getCollisionBox(Entity entity)
     {
-        return new AxisAlignedBB(-1.0D, 0.0D, 0.0D, 1.0D, 1.0D, 7.0D);
+        return AxisAlignedBB.getBoundingBox(-1, 0, 0, 1, 1, 7);
     }
     
 
@@ -377,7 +376,7 @@ public class EntityVehicle extends Entity
         
         this.getBoundingBox().calculateXOffset(this.getBoundingBox(), this.motionX);
         this.getBoundingBox().calculateYOffset(this.getBoundingBox(), this.motionY);
-        this.getBoundingBox().calculateZOffset(this.getBoundingBox(), this.motionZ);
+        this.getBoundingBox().calculateZOffset(this.boundingBox, this.motionZ);
 
         double d2;
         double d4;
@@ -449,11 +448,11 @@ public class EntityVehicle extends Entity
         this.moveEntity(this.motionX, this.motionY, this.motionZ);
     	double z=Math.cos((this.rotationYaw)*Math.PI /180.0)*5.0;
     	double x=Math.sin((this.rotationYaw)*Math.PI/180)*5.0;
-		if(!(this.worldObj.isRemote && ((this.worldObj.getBlockState(new BlockPos(this.posX, this.posY, this.posZ)).getAllInBox(new BlockPos(this.posX-1, this.posY-1, this.posZ-1), new BlockPos(this.posX+1, this.posY+1, this.posZ+1)) != Material.air)) || !this.worldObj.getChunkFromBlockCoords(new BlockPos((int)this.posX, (int)this.posZ)).isChunkLoaded)){
+		if(!(this.worldObj.isRemote && (this.worldObj.blockExists((int)(this.posX+x),(0), (int)(this.posZ+z)) || !this.worldObj.getChunkFromBlockCoords((int)this.posX, (int)this.posZ).isChunkLoaded))){
  			this.motionY=0.0;
  		}else
         {
- 			if(( this.worldObj).blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
+ 			if(this.worldObj.blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
  				this.motionY+=0.1D;
  			}
 	        if (this.posY > 0.0D)

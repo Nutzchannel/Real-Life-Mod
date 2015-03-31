@@ -453,7 +453,7 @@ public class EntityVehicle extends Entity
  			this.motionY=0.0;
  		}else
         {
- 			if(( this.worldObj).blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
+ 			if(this.worldObj.blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
  				this.motionY+=0.1D;
  			}
 	        if (this.posY > 0.0D)

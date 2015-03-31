@@ -449,11 +449,11 @@ public class EntityVehicle extends Entity
         this.moveEntity(this.motionX, this.motionY, this.motionZ);
     	double z=Math.cos((this.rotationYaw)*Math.PI /180.0)*5.0;
     	double x=Math.sin((this.rotationYaw)*Math.PI/180)*5.0;
-		if(!(this.worldObj.isRemote && ((this.worldObj.getBlockState(new BlockPos(this.posX, this.posY, this.posZ)).getAllInBox(new BlockPos(this.posX-1, this.posY-1, this.posZ-1), new BlockPos(this.posX+1, this.posY+1, this.posZ+1)) != Material.air)) || !this.worldObj.getChunkFromBlockCoords(new BlockPos((int)this.posX, (int)this.posZ)).isChunkLoaded)){
+		if(!(this.worldObj.isRemote && ((this.worldObj.getAllInBox(new BlockPos(this.posX-1, this.posY-1, this.posZ-1), new BlockPos(this.posX+1, this.posY+1, this.posZ+1)) != Material.air)) || !this.worldObj.getChunkFromBlockCoords((int)this.posX, (int)this.posZ).isChunkLoaded))){
  			this.motionY=0.0;
  		}else
         {
- 			if(( this.worldObj).blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
+ 			if(this.worldObj.blockExists((int)(this.posX+x),(1), (int)(this.posZ+z))){
  				this.motionY+=0.1D;
  			}
 	        if (this.posY > 0.0D)
